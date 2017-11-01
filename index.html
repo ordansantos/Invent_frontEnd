@@ -1,0 +1,87 @@
+<html lang="pt" ng-app="Invent" ng-cloak>
+
+  <head>
+    <title>Invent</title>
+    <meta charset="utf-8">
+
+    <!--<meta name="description" content="Virtus Web app boilerplate">
+    <meta name="keywords" content="Virtus, App, Web, Embedded">
+    <meta name="author" content="Matheus P. Silva">
+    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- Angular Material Stylesheet -->
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <!--Custom Stylesheet-->
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <!--Normalize CSS-->
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+    <!--Roboto Light, Normal, Medium Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <!--Google - Material Design IconFont-->
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+    <!-- Utilizando no Responsive Calendar (necessário deixar com cara de material design) -->
+    <link rel="stylesheet" href="bower_components/ng-responsive-calendar/dist/css/calendar.css">
+  </head>
+
+  <body layout="row" ng-controller="AppController" layout-fill ng-cloak>
+
+    <!-- ==== PAGE_LOADER ==== -->
+    <div class="preloader">
+      <div class="loader-android">
+        <svg class="circular">
+          <circle class="path" cx="27" cy="27" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+        </svg>
+      </div>
+    </div>
+    <!-- ==== /PAGE_LOADER ==== -->
+
+    <!-- All Views -->
+    <div ui-view style="width: 100%; height: 100%;"></div>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+    <script src="bower_components/ngMask/dist/ngMask.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/min/locales.js"></script>
+
+    <!-- ROOM MODULES -->
+    <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="bower_components/angular-material/angular-material.js"></script>
+
+    <!--Angular app-->
+    <script src="src/app.js"></script>
+    <script src="src/app.controller.js"></script>
+
+    <!--<script src="src/shared-services/connection.factory.js"></script>-->
+    <!--<script src="src/shared-services/alert.service.js"></script>-->
+    <!--<script src="src/shared-services/image.factory.js"></script>-->
+
+    <!--Configs-->
+    <script src="src/config/routeConfig.js"></script>
+
+     <!-- Angular Responsive Calendar -->
+    <script src="bower_components/ng-responsive-calendar/dist/js/calendar-tpls.js"></script>
+    
+    <!-- Controllers -->
+    <script src="src/components/thing/thing.controller.js"></script>
+    <script src="src/components/room/room.controller.js"></script>
+
+    <!-- Factorys -->
+    <script src="src/components/room/services/room.factory.js"></script>
+    <script src="src/components/thing/services/thing.factory.js"></script>
+
+
+
+  </body>
+
+</html>
