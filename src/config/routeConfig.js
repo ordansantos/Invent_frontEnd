@@ -1,10 +1,10 @@
 angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/createThing");
+  $urlRouterProvider.otherwise("/createThing/");
 
   $stateProvider
     .state('createThing', {
-      url: '/createThing',
+      url: '/createThing/:idThing',
       templateUrl: 'src/components/thing/thing.html',
       controller: 'ThingController'
     })
@@ -12,3 +12,4 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
     
 
 });
+
