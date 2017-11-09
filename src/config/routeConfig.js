@@ -14,6 +14,16 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
           templateUrl: 'src/components/machine/create-edit-machine.html',
           controller: 'MachineController'
       })
+      .state('login', {
+          url: '/login',
+          templateUrl: 'src/components/login/login.html'
+      })
+
+      .state('create-user', {
+          url: '/create-user',
+          templateUrl: 'src/components/user/create-user/create-user.html'
+      })
+
 
     
 

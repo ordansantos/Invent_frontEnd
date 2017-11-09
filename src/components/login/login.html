@@ -1,0 +1,28 @@
+<div class="login">
+    <div class="login-screen">
+
+        <div class="center">
+            <img id="project-image" ng-src="img/splab.png">
+        </div>
+
+        <div class="app-title">
+            <h1>Login</h1>
+        </div>
+
+        <div class="login-form">
+
+            <div class="control-group">
+                <input type="text" class="login-field" placeholder="email" name="login-email" id="login-email" ng-model="user.email">
+                <label class="login-field-icon fui-user" for="login-email"></label>
+            </div>
+
+            <div class="control-group">
+                <input type="password" class="login-field" placeholder="password" name="login-pass" id="login-pass" ng-model="user.password">
+                <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+
+            <md-button class="btn btn-primary btn-large btn-block">login</md-button>
+            <a class="login-link" href="#">Realizar Cadastro</a>
+        </div>
+    </div>
+</div>
