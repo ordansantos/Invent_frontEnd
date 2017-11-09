@@ -11,7 +11,7 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
 
       .state('create-edit-machine', {
           url: '/create-edit-machine/:idMachine',
-          templateUrl: 'src/components/thing/create-edit-machine.html',
+          templateUrl: 'src/components/machine/create-edit-machine.html',
           controller: 'MachineController'
       })
 

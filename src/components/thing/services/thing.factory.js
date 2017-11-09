@@ -5,8 +5,8 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
     return {
 
         /**
-         * Get rooms
-         * @returns {array} rooms
+         * Get Things
+         * @returns {array} things
          */
 
         getThings: function () {

@@ -11,7 +11,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
         console.log(id);
         MachineFactory.getMachine(id).then(function(result){
             console.log(result);
-            $scope.thing = result;
+            $scope.machine = result;
         }).catch(function(result){
             console.log("Error");
         })
