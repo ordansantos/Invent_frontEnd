@@ -45,6 +45,25 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             });
         },
 
+        editThing: function (thing) {
+            console.log(thing._id);
+
+            var req = {
+                method: 'PUT',
+                url: myIp + '/thing/' + thing._id,
+                data: thing,
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+
+            return $http(req).then(function (response) {
+                return response.data;
+            }, function errorCallback(response) {
+
+            });
+        },
+
 
 
           addThing: function (thing) {

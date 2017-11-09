@@ -3,6 +3,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	var myScope = $scope;
 
 	$scope.thing;
+    $scope.editable = false;
+
     var idThing = $stateParams.idThing;
     
     myScope.getThing = function (id) {
@@ -19,8 +21,9 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 
 
     if($stateParams.idThing){
+        $scope.editable = true;
         myScope.getThing(idThing);
-    }
+    };
 
 
 
@@ -35,9 +38,14 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 		}).catch(function(result){
 			console.log("Error");
 		})
-	}
+	};
 
-	$scope.currentThing = 'Cadeira';
-
+	myScope.editThing = function (thing) {
+        ThingFactory.editThing(thing).then(function(result){
+            console.log("Sucesso");
+        }).catch(function(result){
+            console.log("Error");
+        })
+    };
 
 });
