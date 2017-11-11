@@ -32,26 +32,31 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
 
         sidenav: {
             actions: [
+
+                {
+                    name: 'Objetos',
+                    icon: 'content_paste',
+                    link: 'create-edit-thing'
+                },
+
+                {
+                    name: 'Maquinas',
+                    icon: 'computer',
+                    link: 'create-edit-machine'
+                },
+
                 {
                     name: 'Usuários',
                     icon: 'people',
                     link: 'usuarios'
                 },
-                {
-                    name: 'Maquinas',
-                    icon: 'event',
-                    link: 'create-edit-machine'
-                },
+
                 {
                     name: 'Salas',
                     icon: 'map',
                     link: 'salas'
                 },
-                {
-                    name: 'Objetos',
-                    icon: 'local_atm',
-                    link: 'create-edit-thing'
-                },
+
                 {
                     name: 'Meus dados',
                     icon: 'assignment_ind',
