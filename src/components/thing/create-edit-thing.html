@@ -1,67 +1,72 @@
-<sidenav div layout="column" ></sidenav>
+<md-toolbar>
+  <div class="md-toolbar-tools">O logo aqui</div>
+</md-toolbar>
+<div layout="row">
+  <sidenav></sidenav>
 
-<div layout="column" ng-cloak>
+  <div class="form" flex layout="column" ng-cloak>
 
-  <md-content layout="column" flex="">
-    <div>
-      <form name="thingForm">
+    <md-content layout-padding="" flex="">
+      <div>
+        <form name="thingForm">
 
-        <div layout-gt-xs="row">
-          <md-input-container class="md-block" flex-gt-xs="">
-            <label>Number of Patrimony</label>
-            <input ng-model="thing.numberOfPatrimony">
+          <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-xs="">
+              <label>Number of Patrimony</label>
+              <input ng-model="thing.numberOfPatrimony">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-xs="">
+              <label>Name</label>
+              <input ng-model="thing.name">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Source</label>
+              <input ng-model="thing.source">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Brand Model</label>
+              <input ng-model="thing.brand_model">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Series</label>
+              <input ng-model="thing.series">
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Situation</label>
+              <input ng-model="thing.situation">
+            </md-input-container>
+          </div>
+
+          <md-input-container class="md-block">
+            <label>Description</label>
+            <textarea ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus=""></textarea>
           </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-xs="">
-            <label>Name</label>
-            <input ng-model="thing.name">
-          </md-input-container>
-        </div>
-
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Source</label>
-            <input ng-model="thing.source">
+          <md-input-container class="md-block">
+              <label>Comments</label>
+              <textarea ng-model="thing.comments" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
           </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Brand Model</label>
-            <input ng-model="thing.brand_model">
-          </md-input-container>
-        </div>
+          <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+            <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
+          </div>
+          <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+            <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
+          </div>
 
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Series</label>
-            <input ng-model="thing.series">
-          </md-input-container>
+          {{thing}}
 
-          <md-input-container class="md-block" flex-gt-sm="">
-            <label>Situation</label>
-            <input ng-model="thing.situation">
-          </md-input-container>
-        </div>
-
-        <md-input-container class="md-block">
-          <label>Description</label>
-          <textarea ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus=""></textarea>
-        </md-input-container>
-
-        <md-input-container class="md-block">
-            <label>Comments</label>
-            <textarea ng-model="thing.comments" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
-        </md-input-container>
-
-        <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-          <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
-        </div>
-        <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
-          <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
-        </div>
-
-        {{thing}}
-
-      </form>
-    </div>
-  </md-content>
+        </form>
+      </div>
+    </md-content>
+  </div>
 </div>

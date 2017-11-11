@@ -1,89 +1,95 @@
-<sidenav ></sidenav >
-<div layout="column" ng-cloak>
+<md-toolbar>
+  <div class="md-toolbar-tools">O logo aqui</div>
+</md-toolbar>
+<div layout="row">
+  <sidenav ></sidenav >
 
-    <md-content layout-padding="" flex="">
-        <div>
-            <form name="machineForm">
+  <div class="form" layout="column" flex ng-cloak>
 
-                <div layout-gt-xs="row">
-                    <md-input-container class="md-block" flex-gt-xs="">
-                        <label>Public IP</label>
-                        <input ng-model="machine.public_ip">
-                    </md-input-container>
+      <md-content layout-padding="" flex="">
+          <div>
+              <form name="machineForm">
 
-                    <md-input-container class="md-block" flex-gt-xs="">
-                        <label>Name</label>
-                        <input ng-model="machine.name">
-                    </md-input-container>
-                </div>
+                  <div layout-gt-xs="row">
+                      <md-input-container class="md-block" flex-gt-xs="">
+                          <label>Public IP</label>
+                          <input ng-model="machine.public_ip">
+                      </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Machine User</label>
-                        <input ng-model="machine.machine_user">
-                    </md-input-container>
+                      <md-input-container class="md-block" flex-gt-xs="">
+                          <label>Name</label>
+                          <input ng-model="machine.name">
+                      </md-input-container>
+                  </div>
 
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Processor</label>
-                        <input ng-model="machine.processor">
-                    </md-input-container>
-                </div>
+                  <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Machine User</label>
+                          <input ng-model="machine.machine_user">
+                      </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>HD</label>
-                        <input ng-model="machine.hd">
-                    </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Processor</label>
+                          <input ng-model="machine.processor">
+                      </md-input-container>
+                  </div>
 
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Ram Memory</label>
-                        <input ng-model="machine.ram_memory">
-                    </md-input-container>
-                </div>
+                  <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>HD</label>
+                          <input ng-model="machine.hd">
+                      </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Property</label>
-                        <input ng-model="machine.property">
-                    </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Ram Memory</label>
+                          <input ng-model="machine.ram_memory">
+                      </md-input-container>
+                  </div>
 
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Inst Property</label>
-                        <input ng-model="machine.inst_property">
-                    </md-input-container>
-                </div>
+                  <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Property</label>
+                          <input ng-model="machine.property">
+                      </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Monitor</label>
-                        <input ng-model="machine.monitor">
-                    </md-input-container>
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Inst Property</label>
+                          <input ng-model="machine.inst_property">
+                      </md-input-container>
+                  </div>
 
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Monitor Property</label>
-                        <input ng-model="machine.monitor_property">
-                    </md-input-container>
-                </div>
+                  <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Monitor</label>
+                          <input ng-model="machine.monitor">
+                      </md-input-container>
 
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm="">
-                        <label>Inst Monitor Property</label>
-                        <input ng-model="machine.inst_monitor_property">
-                    </md-input-container>
-                </div>
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Monitor Property</label>
+                          <input ng-model="machine.monitor_property">
+                      </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Inst Monitor Property</label>
+                          <input ng-model="machine.inst_monitor_property">
+                      </md-input-container>
+                  </div>
 
 
 
-                <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-                    <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>
-                </div>
-                <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
-                    <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>
-                </div>
+                  <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+                      <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>
+                  </div>
+                  <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+                      <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>
+                  </div>
 
-                {{machine}}
+                  {{machine}}
 
-            </form>
-        </div>
-    </md-content>
+              </form>
+          </div>
+      </md-content>
+  </div>
 </div>
