@@ -1,0 +1,69 @@
+angular.module('Invent').controller('SidenavController', function($scope, $state, $mdSidenav, $location, $window) {
+
+    var myScope = $scope;
+
+    myScope.setRoute = function(route) {
+        if (route == 'sair') {
+            $state.go('inicio');
+            sessionStorage.clear();
+        }
+        $state.go(route);
+    };
+
+    myScope.toggleSidenav = function(menu) {
+        $mdSidenav(menu).toggle();
+    };
+
+    myScope.isUserConfigs = function(data) {
+        return data === "Meus dados";
+    };
+
+    myScope.isNotification = function(data) {
+        return data === "Nofiticações";
+    };
+
+    myScope.toggle = function(item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) list.splice(idx, 1);
+        else list.push(item);
+    };
+
+    myScope.data = {
+
+        sidenav: {
+            actions: [
+                {
+                    name: 'Usuários',
+                    icon: 'people',
+                    link: 'usuarios'
+                },
+                {
+                    name: 'Maquinas',
+                    icon: 'event',
+                    link: 'create-edit-machine'
+                },
+                {
+                    name: 'Salas',
+                    icon: 'map',
+                    link: 'salas'
+                },
+                {
+                    name: 'Objetos',
+                    icon: 'local_atm',
+                    link: 'create-edit-thing'
+                },
+                {
+                    name: 'Meus dados',
+                    icon: 'assignment_ind',
+                    link: 'dados'
+                },
+                {
+                    name: 'Sair',
+                    icon: 'exit_to_app',
+                    link: 'sair'
+                }
+            ]
+
+        }
+    };
+});

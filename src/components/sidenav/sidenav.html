@@ -1,0 +1,18 @@
+<!-- ==== SIDEBAR ==== -->
+<md-sidenav id="SIDENAV" class="md-sidenav" role="sidenav" md-component-id="sidenav" md-is-locked-open="$mdMedia('gt-md')" md-swipe-left="toggleSidenav('sidenav')">
+
+
+    <!-- ==== SIDEBAR_LINKS ==== -->
+    <md-content role="navigation">
+        <md-list ng-repeat="action in data.sidenav.actions" ng-click="toggleSidenav('sidenav')">
+            <hr ng-show="isUserConfigs(action.name)">
+            <md-list-item class="sidebar-itens" name="{{action.name}}" ng-click="setRoute(action.link)">
+                <md-icon>{{action.icon}}</md-icon>
+                <p class="base-font-regular">{{action.name}}</p>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+</md-sidenav>
+    <!-- ==== /SIDEBAR_LINKS ==== -->
+    <!-- ==== /SIDEBAR ==== -->
