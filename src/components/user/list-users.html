@@ -38,19 +38,19 @@
           <!-- ==== REEMBOLSOS_LIST ==== -->
           <md-list>
               <md-list-item class="small-font-medium topic">
-                  <p class="md-list-item-text"><strong> Nome </strong></p>
-                  <p class="md-list-item-text" style="padding-right: 250px"><strong> Email </strong></p>
-                  <p class="md-list-item-text" style="padding-right: 120px"><strong> Sala </strong></p>
-                  <p class="md-list-item-text" style="padding-right: 120px"><strong> Tipo de Usuario </strong></p>
+                  <p class="md-list-item-text" flex><strong> Nome </strong></p>
+                  <p class="md-list-item-text" flex><strong> Email </strong></p>
+                  <p class="md-list-item-text" flex><strong> Sala </strong></p>
+                  <p class="md-list-item-text" flex><strong> Tipo de Usuario </strong></p>
               </md-list-item>
               <br>
               <md-divider></md-divider>
               <br>
-              <md-list-item class="small-font-medium topic"  ng-repeat="user in users">
-                      <p class="md-list-item-text" style="padding-left: 18px">{{user.name}}</p>
-                      <p class="md-list-item-text">{{user.email}} </p>
-                      <p class="md-list-item-text" style="padding-left: 100px">{{user.room}}</p>
-                      <p class="md-list-item-text" style="padding-left: 100px">{{user.userKind}}</p> 
+              <md-list-item class="small-font-medium topic"  ng-repeat="user in getUsers">
+                      <p class="md-list-item-text" flex>{{user.name}}</p>
+                      <p class="md-list-item-text" flex>{{user.email}} </p>
+                      <p class="md-list-item-text" flex>{{user.room}}</p>
+                      <p class="md-list-item-text" flex>{{user.userKind}}</p>
                       <md-button class="md-raised md-primary" ng-click="tornarAdm(user)">Tornar ADM</md-button>
               </md-list-item>
           </md-list>
