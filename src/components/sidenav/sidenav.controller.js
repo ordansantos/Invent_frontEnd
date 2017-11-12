@@ -42,7 +42,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Maquinas',
                     icon: 'computer',
-                    link: 'create-edit-machine'
+                    link: 'list-machines'
                 },
 
                 {
@@ -60,7 +60,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Meus dados',
                     icon: 'assignment_ind',
-                    link: 'dados'
+                    link: 'create-edit-mydata'
                 },
                 {
                     name: 'Sair',

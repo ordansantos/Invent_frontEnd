@@ -1,0 +1,45 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">O logo aqui</div>
+</md-toolbar>
+
+<div class="table">
+
+</div>
+
+<div layout="row">
+    <sidenav></sidenav>
+
+    <div ng-cloak md-scroll-y class="form" flex layout="column">
+        <div>
+            <div id='THINGS'>
+                <md-list>
+                    <md-list-item class="small-font-medium topic">
+                        <p class="md-list-item-text" flex><strong> Patrimônio </strong></p>
+                        <p class="md-list-item-text" flex><strong> Patrimônio ints </strong></p>
+                        <p class="md-list-item-text" flex><strong> Nome </strong></p>
+                        <p class="md-list-item-text" flex><strong> Usuario </strong></p>
+                        <p class="md-list-item-text" flex><strong> Sala </strong></p>
+
+                    </md-list-item>
+                    <br>
+                    <md-divider></md-divider>
+                    <br>
+                    <md-list-item class="small-font-medium topic" ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
+                        <p class="md-list-item-text" flex>{{machine.property}}</p>
+                        <p class="md-list-item-text"flex>{{machine.inst_property}} </p>
+                        <p class="md-list-item-text"flex>{{machine.name}} </p>
+                        <p class="md-list-item-text"flex>{{machine.machine_user}}</p>
+                        <p class="md-list-item-text"flex>{{machine.room}}</p>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div id="FAB-BUTTON">
+                <md-button ng-click="goTo('create-edit-machine')" aria-label="menu" class="md-fab" id="criarNovoReembolso">
+                    <md-icon style="padding-bottom: 20px; color: #FFF">add</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
