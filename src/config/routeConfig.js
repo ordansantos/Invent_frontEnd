@@ -21,7 +21,11 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
           controller: 'UserController'
       })
 
-    
+      .state('listing-things', {
+          url: '/listing-things',
+          templateUrl: 'src/components/thing/listing-things.html',
+          controller: 'ThingController'
+      })
+
 
 });
-
