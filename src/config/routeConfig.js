@@ -15,6 +15,12 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
           controller: 'MachineController'
       })
 
+      .state('list-machines', {
+          url: '/list-machines',
+          templateUrl: 'src/components/machine/list-machines/list-machines.html',
+          controller: 'MachineController'
+      })
+
       .state('list-users', {
           url: '/list-users',
           templateUrl: 'src/components/user/list-users.html',

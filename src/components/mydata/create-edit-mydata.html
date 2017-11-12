@@ -34,14 +34,9 @@
                         </md-input-container>
                     </div>
 
-                    <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-                        <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
-                    </div>
                     <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
-                        <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
+                        <md-button type="submit" value="editar" ng-click="editMyData(mydata)" class="md-raised md-primary">Editar</md-button>
                     </div>
-
-                    {{thing}}
 
                 </form>
             </div>

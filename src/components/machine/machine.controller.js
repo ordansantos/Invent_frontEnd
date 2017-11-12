@@ -3,6 +3,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     var myScope = $scope;
 
     $scope.machine;
+    $scope.machines;
     $scope.editable = false;
 
     var idMachine = $stateParams.idMachine;
@@ -18,6 +19,16 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     };
 
 
+    getMachines = function () {
+
+        MachineFactory.getMachines().then(function (result) {
+            myScope.machines = result.reverse();
+        });
+    };
+
+    getMachines();
+
+
 
 
     if($stateParams.idMachine){
@@ -25,7 +36,10 @@ angular.module('Invent').controller('MachineController', function($scope, $state
         myScope.getMachine(idMachine);
     };
 
-
+    myScope.showMachine = function(id){
+        console.log(id);
+       $state.go('create-edit-machine', { idMachine : id});
+    };
 
     //go to any state
     myScope.goTo = function(state) {
