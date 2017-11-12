@@ -17,9 +17,9 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
       })
   };
 
-	myScope.listThings = function (){
+	listThings = function (){
 		ThingFactory.getThings().then(function(result){
-			myScope.thing = result;
+			myScope.listThings = result;
 		})
 	};
 

@@ -2,28 +2,35 @@
     <div class="md-toolbar-tools">O logo aqui</div>
 </md-toolbar>
 
+<div class="table">
+
+</div>
+
 <div layout="row">
     <sidenav></sidenav>
 
     <div ng-cloak md-scroll-y class="form" flex layout="column">
-      <div id='THINGS'>
-          <md-list>
-              <md-list-item class="small-font-medium topic">
-                  <p class="md-list-item-text"><strong> No. Patrimonio </strong></p>
-                  <p class="md-list-item-text"><strong> Descrisção </strong></p>
-                  <p class="md-list-item-text" ><strong> Marca/Modelo </strong></p>
-                  <p class="md-list-item-text"><strong> Situação </strong></p>
-              </md-list-item>
-              <br>
-              <md-divider></md-divider>
-              <br>
-              <md-list-item class="small-font-medium topic" ng-repeat="thing in listThings">
-                      <p class="md-list-item-text" style="padding-left: 18px">{{thing.number_Patrimony}}</p>
-                      <p class="md-list-item-text">{{thing.description}} </p>
-                      <p class="md-list-item-text" style="padding-left: 100px">{{thing.brand_model}}</p>
-                      <p class="md-list-item-text" style="padding-left: 100px">{{thing.situation}}</p>
-              </md-list-item>
-          </md-list>
+      <div>
+        <div id='THINGS'>
+            <md-list>
+                <md-list-item class="small-font-medium topic">
+                    <p class="md-list-item-text" flex><strong> No. Patrimonio </strong></p>
+                    <p class="md-list-item-text" flex><strong> Descrisção </strong></p>
+                    <p class="md-list-item-text" flex><strong> Marca/Modelo </strong></p>
+                    <p class="md-list-item-text" flex><strong> Situação </strong></p>
+                </md-list-item>
+                <br>
+                <md-divider></md-divider>
+                <br>
+                <md-list-item class="small-font-medium topic" ng-repeat="thing in listThings">
+                        <p class="md-list-item-text" flex>{{thing.number_Patrimony}}</p>
+                        <p class="md-list-item-text"flex>{{thing.description}} </p>
+                        <p class="md-list-item-text"flex>{{thing.brand_model}}</p>
+                        <p class="md-list-item-text"flex>{{thing.situation}}</p>
+                </md-list-item>
+            </md-list>
+        </div>
       </div>
     </div>
+
 </div>
