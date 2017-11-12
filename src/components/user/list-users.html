@@ -40,6 +40,7 @@
                 <p class="md-list-item-text"><strong> Nome </strong></p>
                 <p class="md-list-item-text" style="padding-right: 250px"><strong> Email </strong></p>
                 <p class="md-list-item-text" style="padding-right: 120px"><strong> Sala </strong></p>
+                <p class="md-list-item-text" style="padding-right: 120px"><strong> Tipo de Usuario </strong></p>
             </md-list-item>
             <br>
             <md-divider></md-divider>
@@ -48,6 +49,7 @@
                     <p class="md-list-item-text" style="padding-left: 18px">{{user.name}}</p>
                     <p class="md-list-item-text">{{user.email}} </p>
                     <p class="md-list-item-text" style="padding-left: 100px">{{user.room}}</p>
+                    <p class="md-list-item-text" style="padding-left: 100px">{{user.userKind}}</p>
                     <md-button class="md-raised md-primary" ng-click="tornarAdm(user)">Tornar ADM</md-button>
             </md-list-item>
         </md-list>

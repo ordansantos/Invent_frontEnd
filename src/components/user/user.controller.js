@@ -1,75 +1,32 @@
-angular.module('Invent').controller('UserController', function($scope, $state) {
+angular.module('Invent').controller('UserController', function($scope, $state, UserFactory) {
 
     var myScope = $scope;
 
-    $scope.users = [
-        {
-            name:'Manuel',
-
-            email:'manuel.neto@ccc.ufcg.edu.br',
-
-            room: 'Sala 201',
-
-            type: 'NORMAL'
-        },
-
-        {
-            name: 'Lucas',
-
-            email:'lucas.wilker@ccc.ufcg.edu.br',
-
-            room:'Sala 24',
-
-            type: 'NORMAL'
-        },
-
-        {
-            name: 'icaro',
-
-            email: 'icaro.medeiros@ccc.ufcg.edu.br',
-
-            room: 'Sala 301',
-
-            type: 'NORMAL'
-        },
-
-        {
-            name:'Manuel',
-
-            email:'manuel.neto@ccc.ufcg.edu.br',
-
-            room: 'Sala 201',
-
-            type: 'NORMAL'
-        },
-
-        {
-            name: 'Lucas',
-
-            email:'lucas.wilker@ccc.ufcg.edu.br',
-
-            room:'Sala 24',
-
-            type: 'NORMAL'
-        },
-
-        {
-            name: 'icaro',
-
-            email: 'icaro.medeiros@ccc.ufcg.edu.br',
-
-            room: 'Sala 301',
-
-            type: 'NORMAL'
-        }
-
-    ];
-
-
     $scope.tornarAdm = function(user){
-        user.type = 'ADMIN';
-        console.log(user);
+        user.userKind = 'ADMIN';
+        UserFactory.editUser(user).then(function(result){
+            console.log("Sucesso");
+        }).catch(function(result){
+            console.log("Error");
+        })
     };
+
+    $scope.editUser = function(user){
+        UserFactory.editUser(user).then(function(result){
+            console.log("Sucesso");
+        }).catch(function(result){
+            console.log("Error");
+        })
+    };
+
+    getUsers = function () {
+
+        UserFactory.getUsers().then(function (result) {
+            myScope.users = result.reverse();
+        });
+    };
+
+    getUsers();
 
 
 });
