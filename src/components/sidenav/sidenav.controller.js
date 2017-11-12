@@ -48,7 +48,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Usuários',
                     icon: 'people',
-                    link: 'usuarios'
+                    link: 'list-users'
                 },
 
                 {
