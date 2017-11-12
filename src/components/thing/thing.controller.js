@@ -31,6 +31,10 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   };
 
 
+	myScope.showThing = function(id){
+		console.log(id);
+		$state.go('create-edit-thing', { idThing : id});
+	};
 
 	//go to any state
 	myScope.goTo = function(state) {

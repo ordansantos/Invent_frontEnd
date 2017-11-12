@@ -29,7 +29,7 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
 
       .state('listing-things', {
           url: '/listing-things',
-          templateUrl: 'src/components/thing/listing-things.html',
+          templateUrl: 'src/components/thing/listing-things/listing-things.html',
           controller: 'ThingController'
       })
 

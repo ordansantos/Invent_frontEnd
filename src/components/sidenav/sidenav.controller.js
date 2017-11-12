@@ -36,7 +36,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Objetos',
                     icon: 'content_paste',
-                    link: 'create-edit-thing'
+                    link: 'listing-things'
                 },
 
                 {
