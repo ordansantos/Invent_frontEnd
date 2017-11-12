@@ -4,35 +4,6 @@
 <div layout="row">
     <sidenav></sidenav>
 
-   <!-- <div class="form" flex layout="column" ng-cloak>
-
-        <md-content layout-padding="" flex="">
-            <div class="notification-list">
-
-                <md-card ng-repeat="user in users">
-                    <md-card-title>
-                        <md-list-item class="md-3-line">
-                                <div class="md-list-item-text">
-                                    <h3>{{user.name}}</h3>
-                                </div>
-                                <div class="md-list-item-text">
-                                   <h3>{{user.email}}</h3>
-                                </div>
-                                <div class="md-list-item-text">
-                                    <h3>{{user.room}}</h3>
-                                </div>
-                                <div class="md-list-item-text">
-                                    <md-button>Tornar ADM</md-button>
-                                </div>
-                        </md-list-item>
-                    </md-card-title>
-
-                    <md-card-actions>
-                        <md-button>Tornar ADM</md-button>
-                    </md-card-actions>
-                </md-card>
-        </md-content>
-    </div>-->
     <div ng-cloak md-scroll-y class="form" flex layout="column" layout-padding>
       <div id='USERS'>
           <!-- ==== REEMBOLSOS_LIST ==== -->
@@ -46,7 +17,7 @@
               <br>
               <md-divider></md-divider>
               <br>
-              <md-list-item class="small-font-medium topic"  ng-repeat="user in getUsers">
+              <md-list-item class="small-font-medium topic"  ng-repeat="user in users">
                       <p class="md-list-item-text" flex>{{user.name}}</p>
                       <p class="md-list-item-text" flex>{{user.email}} </p>
                       <p class="md-list-item-text" flex>{{user.room}}</p>
@@ -54,6 +25,8 @@
                       <md-button class="md-raised md-primary" ng-click="tornarAdm(user)">Tornar ADM</md-button>
               </md-list-item>
           </md-list>
+
+          {{}}
       </div>
     </div>
 </div>
