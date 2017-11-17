@@ -43,6 +43,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 
 	myScope.addThing = function(thing){
 		ThingFactory.addThing(thing).then(function(result){
+			$state.go('listing-things');
 			console.log("Sucesso");
 		}).catch(function(result){
 			console.log("Error");
@@ -51,6 +52,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 
 	myScope.editThing = function (thing) {
 	      ThingFactory.editThing(thing).then(function(result){
+			  $state.go('listing-things');
 	          console.log("Sucesso");
 	      }).catch(function(result){
 	          console.log("Error");
