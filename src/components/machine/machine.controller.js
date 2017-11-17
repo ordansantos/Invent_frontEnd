@@ -6,6 +6,9 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     $scope.machines;
     $scope.editable = false;
 
+    $scope.acquisition_date = new Date();
+
+
     var idMachine = $stateParams.idMachine;
 
     myScope.getMachine = function (id) {
