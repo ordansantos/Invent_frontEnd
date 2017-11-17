@@ -47,8 +47,14 @@
 
             <md-input-container class="md-block" flex-gt-sm="">
               <label>Situação</label>
-              <input ng-model="thing.situation">
+              <md-select ng-model="thing.situation">
+                <md-option value="bom">BOM</md-option>
+                <md-option value="ruim">RUIM</md-option>
+                <md-option value="desuso">DESUSO</md-option>
+                <md-option value="doação">DOAÇÂO</md-option>
+              </md-select>
             </md-input-container>
+
           </div>
 
           <md-input-container class="md-block">

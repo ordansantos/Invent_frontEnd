@@ -48,7 +48,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
 
     myScope.addMachine = function(machine){
         MachineFactory.addMachine(machine).then(function(result){
-            $state.go('listing-things');
+            $state.go('list-machines');
             console.log("Sucesso");
         }).catch(function(result){
             console.log("Error");
@@ -57,7 +57,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
 
     myScope.editMachine = function (machine) {
         MachineFactory.editMachine(machine).then(function(result){
-            $state.go('listing-things');
+            $state.go('list-machines');
             console.log("Sucesso");
         }).catch(function(result){
             console.log("Error");
