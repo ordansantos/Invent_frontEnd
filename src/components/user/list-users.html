@@ -22,7 +22,7 @@
                       <p class="md-list-item-text" flex>{{user.email}} </p>
                       <p class="md-list-item-text" flex>{{user.room}}</p>
                       <p class="md-list-item-text" flex>{{user.userKind}}</p>
-                      <md-button class="md-raised md-primary" ng-click="tornarAdm(user)">Tornar ADM</md-button>
+                      <md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button>
               </md-list-item>
           </md-list>
 
