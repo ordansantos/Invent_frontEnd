@@ -31,7 +31,6 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()
             .title('Você deseja modificar o tipo do usuário?')
-            .textContent('All of the banks have agreed to forgive you your debts.')
             .ariaLabel('Lucky day')
             .targetEvent(ev)
             .ok('Sim')
