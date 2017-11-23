@@ -40,7 +40,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 },
 
                 {
-                    name: 'Maquinas',
+                    name: 'Máquinas',
                     icon: 'computer',
                     link: 'list-machines'
                 },
