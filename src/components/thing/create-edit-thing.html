@@ -1,83 +1,98 @@
 <md-toolbar>
-  <div class="md-toolbar-tools">O logo aqui</div>
+  <div class="md-toolbar-tools">
+
+    <strong>
+      <i class="material-icons left">
+        assignment
+      </i> InLab
+    </strong>
+
+  </div>
 </md-toolbar>
 <div layout="row">
   <sidenav></sidenav>
 
-  <div class="form" flex layout="column" ng-cloak>
+    <div class="form" flex layout="column" ng-cloak>
 
-    <md-content layout-padding="" flex="">
-      <div>
-        <form name="thingForm">
+      <md-content  flex="">
+        <div>
+          <form name="thingForm">
 
-          <md-input-container class="md-block">
-            <label>Descrição</label>
-            <textarea ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus=""></textarea>
-          </md-input-container>
-
-          <div layout-gt-xs="row">
-            <md-input-container class="md-block" flex-gt-xs="">
-              <label>Número de patrimônio</label>
-              <input ng-model="thing.number_Patrimony">
-            </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Número de Série</label>
-              <input ng-model="thing.serie">
+              <md-input-container class="md-block">
+              <label>Descrição</label>
+              <textarea ng-model="thing.description" md-maxlenght="150" rows="2" md-select-on-focus=""></textarea>
             </md-input-container>
 
-          </div>
+            <div layout-gt-xs="row">
+              <md-input-container class="md-block" flex-gt-xs="">
+                <label>Número de patrimônio</label>
+                <input ng-model="thing.number_Patrimony">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Número de Série</label>
+                <input ng-model="thing.serie">
+              </md-input-container>
 
-          <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Origem</label>
-              <input ng-model="thing.origem">
-            </md-input-container>
+            </div>
 
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Marca/Modelo</label>
-              <input ng-model="thing.brand_model">
-            </md-input-container>
-          </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Origem</label>
+                <input ng-model="thing.origem">
+              </md-input-container>
 
-          <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Sala</label>
-              <input ng-model="thing.room">
-            </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Marca/Modelo</label>
+                <input ng-model="thing.brand_model">
+              </md-input-container>
+            </div>
 
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Situação</label>
-              <md-select ng-model="thing.situation">
-                <md-option value="bom">BOM</md-option>
-                <md-option value="ruim">RUIM</md-option>
-                <md-option value="desuso">DESUSO</md-option>
-                <md-option value="doação">DOAÇÂO</md-option>
-              </md-select>
-            </md-input-container>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Sala</label>
+                <input ng-model="thing.room">
+              </md-input-container>
 
-            <md-input-container class="md-block" flex-gt-sm="">
-              <label>Data de aquisição</label>
-              <md-datepicker ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-            </md-input-container>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Situação</label>
+                <md-select ng-model="thing.situation">
+                  <md-option value="bom">BOM</md-option>
+                  <md-option value="ruim">RUIM</md-option>
+                  <md-option value="desuso">DESUSO</md-option>
+                  <md-option value="doação">DOAÇÂO</md-option>
+                </md-select>
+              </md-input-container>
 
-          </div>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Data de aquisição</label>
+                <md-datepicker ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+              </md-input-container>
 
-          <md-input-container class="md-block">
+            </div>
+
+            <md-input-container class="md-block">
               <label>Comentários</label>
-              <textarea ng-model="thing.comments" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
-          </md-input-container>
+              <textarea ng-model="thing.comments" md-maxlength="150" rows="2" md-select-on-focus=""></textarea>
+            </md-input-container>
 
-          <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-            <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
-          </div>
-          <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
-            <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
-          </div>
+            <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+              <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
+            </div>
+            <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+              <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
+            </div>
 
-          {{thing}}
+            {{thing}}
 
-        </form>
-      </div>
-    </md-content>
+          </form>
+        </div>
+      </md-content>
+    </div>
+
   </div>
+
+
+
 </div>
+
+

@@ -1,9 +1,17 @@
 <md-toolbar>
-    <div class="md-toolbar-tools">O logo aqui</div>
+    <div class="md-toolbar-tools">
+
+            <strong>
+                <i class="material-icons left">
+                    assignment
+                </i> InLab
+            </strong>
+
+    </div>
 </md-toolbar>
 
 <style>
-    tr {
+    tbody > tr {
         cursor: pointer;
     }
 </style>
@@ -29,11 +37,11 @@
                     <tbody>
                     <tr ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
                         <td><a class="collection-item title"><i class="material-icons center">edit</i></a></td>
-                        <td>{{thing.number_Patrimony}}</td>
-                        <td>{{thing.serie}}</td>
-                        <td>{{thing.description}}</td>
-                        <td>{{thing.brand_model}}</td>
-                        <td>{{thing.situation}}</td>
+                        <td class="light">{{thing.number_Patrimony}}</td>
+                        <td class="light">{{thing.serie}}</td>
+                        <td class="light">{{thing.description}}</td>
+                        <td class="light">{{thing.brand_model}}</td>
+                        <td class="light">{{thing.situation}}</td>
                     </tr>
 
                     </tbody>
@@ -45,7 +53,7 @@
                 <div id="FAB-BUTTON">
                     <a ng-click="goTo('create-edit-thing')" class="waves-effect waves-light btn-large red lighten-2"
                        id="criarNovoObjeto">
-                        <i class="material-icons left">add</i> Novo Objeto
+                            <i class="material-icons left">add</i> Novo Objeto
                     </a>
                 </div>
             </div>
