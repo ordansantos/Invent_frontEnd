@@ -10,125 +10,123 @@
           <div>
               <form name="machineForm">
 
+                  <md-input-container class="md-block" flex-gt-xs="">
+                      <label>Descrição</label>
+                      <textarea ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required></textarea>
+                      <div ng-messages="machineForm.machineDescription.$error">
+                          <div ng-message="required"> Este campo é obrigatório! </div>
+                      </div>
+                  </md-input-container>
+
                   <div layout-gt-xs="row">
-                      <md-input-container class="md-block" flex-gt-xs="">
-                          <label>IP público</label>
-                          <input type="text" ng-model="machine.public_ip" name="publicIP" required ng-pattern='/^([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})[.]([0-9]{1,3})$/'>
-                          <div ng-messages="machineForm.publicIP.$error" ng-messages-multiple ng-show="machineForm.publicIP.$touched">
-                              <p ng-message="required"> Digite o IP público da máquina! </p>
-                              <p ng-message="pattern"> IP inválido! </p>
-                          </div>
-                      </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-xs="">
-                          <label>Nome</label>
-                          <input type="text" ng-model="machine.name" name="machineName" required>
-                          <div ng-messages="machineForm.machineName.$error" ng-messages-multiple>
-                              <div ng-message="required"> Digite o nome da máquina! </div>
-                          </div>
+                          <label>IP público</label>
+                          <input type="text" ng-model="machine.public_ip" name="publicIP">
+
+                      </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Usuário da Máquina</label>
+                          <input type="text" ng-model="machine.machine_user" name="machineUser">
+
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Usuário da Máquina</label>
-                          <input type="text" ng-model="machine.machine_user" name="machineUser" required>
-                          <div ng-messages="machineForm.machineUser.$error">
-                              <div ng-message="required"> Digite o nome do usuário da máquina! </div>
 
-                          </div>
-                      </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Processador</label>
                           <input ng-model="machine.processor">
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>HD</label>
                           <input ng-model="machine.hd">
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Memória RAM</label>
                           <input ng-model="machine.ram_memory">
                       </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Número de Patrimônio</label>
+                          <input type="number" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
+
+                      </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Número de Patrimônio</label>
-                          <input type="number" ng-model="machine.number_Patrimony" name="numberOfPatrimony" required>
-                          <div ng-messages="machineForm.numberOfPatrimony.$error">
-                              <div ng-message="required"> Digite o número de Patrimônio da máquina! </div>
-                          </div>
-                      </md-input-container>
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Patrimônio Inst</label>
-                          <input ng-model="machine.inst_Patrimony" name="instPatrimony" required>
-                          <div ng-messages="machineForm.instPatrimony.$error">
-                              <div ng-message="required"> Digite o nome da instituição de patrimônio da máquina! </div>
-                          </div>
-                      </md-input-container>
-                  </div>
+                          <input ng-model="machine.inst_Patrimony" name="instPatrimony">
 
-                  <div layout-gt-sm="row">
+                      </md-input-container>
+
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Monitor</label>
                           <input ng-model="machine.monitor">
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio do Monitor </label>
-                          <input type="number" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony" required>
-                          <div ng-messages="machineForm.monitorNumberOfPatrimony.$error">
-                              <div ng-message="required"> Digite o número de patrimônio do monitor! </div>
-                          </div>
+                          <input type="number" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
+
+                      </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Patrimônio Monitor Inst</label>
+                          <input ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
+
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Patrimônio Monitor Inst</label>
-                          <input ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony" required>
-                          <div ng-messages="machineForm.instMonitorPatrimony.$error">
-                              <div ng-message="required"> Digite o nome da instituição de patrimônio do monitor! </div>
-                          </div>
-                      </md-input-container>
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Sala</label>
                           <input ng-model="machine.room">
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Situação</label>
-                          <md-select ng-model="machine.situation" name="machineSituation" required>
+                          <md-select ng-model="machine.situation" name="machineSituation">
                               <md-option value="bom">BOM</md-option>
                               <md-option value="ruim">RUIM</md-option>
                               <md-option value="desuso">DESUSO</md-option>
                               <md-option value="doação">DOAÇÂO</md-option>
                           </md-select>
-                          <div ng-messages="machineForm.machineSituation.$error">
-                              <div ng-message="required"> Selecione a situação da máquina! </div>
-                          </div>
+
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Data de aquisição</label>
-                          <md-datepicker ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus required></md-datepicker>
+                          <md-datepicker ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
+
                       </md-input-container>
                   </div>
 
 
 
                   <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-                      <md-button type="submit" value="salvar" ng-click="addMachine(machine)" ng-disable="!machineForm.$valid" class="md-raised md-primary">Salvar</md-button>
+                      <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>
                   </div>
                   <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>

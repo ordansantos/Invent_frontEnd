@@ -5,6 +5,8 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     $scope.machine;
     $scope.machines;
     $scope.editable = false;
+    var today = new Date();
+    $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
     $scope.acquisition_date = new Date();
 
