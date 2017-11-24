@@ -71,4 +71,8 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
 
         }
     };
+
+    myScope.getClass = function (path) {
+        return ($location.path().substr(1, path.length) === path) ? 'Indigo' : 'grey-A100';
+    }
 });
