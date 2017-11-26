@@ -9,22 +9,23 @@
       <div>
         <div id='THINGS'>
             <md-list>
-                <md-list-item class="small-font-medium topic">
-                    <p class="md-list-item-text" flex><strong> No. Patrimonio </strong></p>
-                    <p class="md-list-item-text" flex><strong> No. Série </strong></p>
-                    <p class="md-list-item-text" flex><strong> Descrisção </strong></p>
-                    <p class="md-list-item-text" flex><strong> Marca/Modelo </strong></p>
-                    <p class="md-list-item-text" flex><strong> Situação </strong></p>
+                <md-list-item class="small-font-medium topic" >
+                  <p flex="25"><strong> No. Patrimonio </strong></p>
+                    <p flex="30" ><strong> No. Série </strong></p>
+                    <p flex="30"><strong> Descrisção </strong></p>
+                    <p flex="30"><strong> Marca/Modelo </strong></p>
+                    <p flex="20"><strong> Situação </strong></p>
                 </md-list-item>
                 <br>
                 <md-divider></md-divider>
                 <br>
-                <md-list-item class="small-font-medium topic" ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
-                        <p class="md-list-item-text" flex>{{thing.number_Patrimony}}</p>
-                        <p class="md-list-item-text" flex>{{thing.serie}}</p>
-                        <p class="md-list-item-text"flex>{{thing.description}} </p>
-                        <p class="md-list-item-text"flex>{{thing.brand_model}}</p>
-                        <p class="md-list-item-text"flex>{{thing.situation}}</p>
+                <!-- ng-click="showThing(thing._id)" -->
+                <md-list-item  ng-click="showThing(thing._id)" ng-repeat="thing in listThings">
+                        <p flex="20" >{{thing.number_Patrimony}}</p>
+                        <p flex="15" >{{thing.serie}}</p>
+                        <p flex="25" >{{thing.description}} </p>
+                        <p style="margin=center">{{thing.brand_model}}</p>
+                        <p flex="15">{{thing.situation}}</p>
                 </md-list-item>
             </md-list>
             <div id="FAB-BUTTON">
