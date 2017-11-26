@@ -25,8 +25,10 @@
           <div layout-gt-xs="row">
             <md-input-container class="md-block" flex-gt-xs="">
               <label>Número de patrimônio</label>
-              <input type="number" name="numberPatrimony" ng-model="thing.number_Patrimony" ng-minlength="3"  ng-maxlength="100"  required/>
-              <div ng-messages="thingForm.numberPatrimony.$error" ng-messages-multiple ng-show="thingForm.numberPatrimony.$touched && thingForm.numberPatrimony.$invalid">
+              <input type="number" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
+
+              <!-- Validação
+                <div ng-messages="thingForm.numberPatrimony.$error" ng-messages-multiple ng-show="thingForm.numberPatrimony.$touched && thingForm.numberPatrimony.$invalid">
                 <div ng-message="required">
                   Você precisa inserir um número de patrimônio
                 </div>
@@ -36,13 +38,14 @@
                 <div ng-message="maxlength">
                   O número de patrimônio é muito longo
                 </div>
-              </div>
+              </div> -->
 
             </md-input-container>
             <md-input-container class="md-block" flex-gt-sm="">
 
               <label>Número de Série</label>
-              <input type="number" name="numberSerie" ng-model="thing.serie" ng-minlength="3"  ng-maxlength="100" required/>
+              <input type="number" name="numberSerie" ng-model="thing.serie" />
+              <!-- Validação
               <div ng-messages="thingForm.numberSerie.$error" ng-messages-multiple ng-show="thingForm.numberSerie.$touched && thingForm.numberSerie.$invalid">
                 <div ng-message="required">
                   Você precisa inserir um número de série
@@ -53,7 +56,7 @@
                 <div ng-message="maxlength">
                   O número de série é muito longo
                 </div>
-              </div>
+              </div> -->
 
             </md-input-container>
 
@@ -79,7 +82,9 @@
             <md-input-container class="md-block" flex-gt-sm="">
 
               <label>Sala</label>
-              <input type="text" name="room" ng-model="thing.room" ng-minlength="3"  ng-maxlength="100" required/>
+              <input type="text" name="room" ng-model="thing.room" />
+
+              <!-- Validação
               <div ng-messages="thingForm.room.$error" ng-messages-multiple ng-show="thingForm.room.$touched && thingForm.room.$invalid">
                 <div ng-message="required">
                   Você precisa inserir uma sala
@@ -90,31 +95,32 @@
                 <div ng-message="maxlength">
                   O nome da sala é muito longo
                 </div>
-              </div>
+              </div> -->
 
             </md-input-container>
 
             <md-input-container class="md-block" flex-gt-sm="">
               <label>Situação</label>
-              <md-select name="situation" ng-model="thing.situation" required/>
+              <md-select name="situation" ng-model="thing.situation" />
                 <md-option value="bom">BOM</md-option>
                 <md-option value="ruim">RUIM</md-option>
                 <md-option value="desuso">DESUSO</md-option>
                 <md-option value="doação">DOAÇÂO</md-option>
               </md-select>
 
+              <!-- Validação
               <div ng-messages="thingForm.situation.$error" ng-messages-multiple ng-show="thingForm.situation.$touched && thingForm.situation.$invalid">
                 <div ng-message="required">
                   Você precisa selecionar uma situação
                 </div>
               </div>
-
+              -->
             </md-input-container>
 
             <md-input-container class="md-block" flex-gt-sm="">
 
               <label>Data de aquisição</label>
-              <md-datepicker name="acquisitionDate" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus required/>
+              <md-datepicker name="acquisitionDate" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
 
             </md-input-container>
 

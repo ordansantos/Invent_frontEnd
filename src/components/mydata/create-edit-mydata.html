@@ -15,7 +15,7 @@
                         <md-input-container class="md-block" flex-gt-sm="">
 
                             <label>Nome</label>
-                            <input type="text" name="name" ng-model="mydata.name" ng-minlength="3" ng-maxlength="30" ng-required="true">
+                            <input type="text" name="name" ng-model="mydata.name" ng-minlength="3" ng-maxlength="30" required/>
                             <div ng-messages="mydataForm.name.$error" ng-messages-multiple ng-show="mydataForm.name.$touched && mydataForm.name.$invalid">
                                 <div ng-message="required">
                                     Você esqueceu de colocar seu nome, ex: Carlos
@@ -58,7 +58,8 @@
                         <md-input-container class="md-block" flex-gt-sm="">
 
                             <label>Sala</label>
-                            <input type="text" name="sala" ng-model="mydata.room" ng-minlength="1"  ng-maxlength="30" ng-required="true">
+                            <input type="text" name="sala" ng-model="mydata.room" />
+                            <!-- Validação
                             <div ng-messages="mydataForm.sala.$error" ng-messages-multiple ng-show="mydataForm.sala.$touched && mydataForm.sala.$invalid">
                                 <div ng-message="required">
                                     Você esqueceu de especificar a sala, ex: Sala 101
@@ -70,13 +71,14 @@
                                     O nome da sala é muito longo
                                 </div>
                             </div>
-
+                            -->
                         </md-input-container>
 
                         <md-input-container class="md-block" flex-gt-sm="">
 
                             <label>Tipo de usuário</label>
-                            <input type="text" name="userkind" ng-model="mydata.userKind" ng-minlength="3"  ng-maxlength="30" ng-required="true">
+                            <input type="text" name="userkind" ng-model="mydata.userKind" />
+                            <!-- Validação
                             <div ng-messages="mydataForm.userkind.$error" ng-messages-multiple ng-show="mydataForm.userkind.$touched && mydataForm.userkind.$invalid">
                                 <div ng-message="required">
                                     Você esqueceu de especificar o tipo de usário
@@ -88,6 +90,7 @@
                                     O nome é muito longo
                                 </div>
                             </div>
+                            -->
 
                         </md-input-container>
                     </div>
