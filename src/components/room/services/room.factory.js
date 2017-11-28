@@ -1,5 +1,7 @@
 angular.module('Invent').factory('RoomFactory', function ($window, $http, $state) {
 
+    var myIp = 'http://localhost:8081';
+
     return {
 
         /**
@@ -19,6 +21,7 @@ angular.module('Invent').factory('RoomFactory', function ($window, $http, $state
 
 
             return $http(req).then(function (response) {
+                console.log(response.data);
                 return response.data;
             }, function errorCallback(response) {
                 console.log("Erro na request de rooms!", response);
