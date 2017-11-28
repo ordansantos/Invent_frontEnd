@@ -1,39 +1,75 @@
 <md-toolbar>
-    <div class="md-toolbar-tools">O logo aqui</div>
+    <div class="md-toolbar-tools blue">
+
+            <strong>
+                <i class="material-icons left">
+                    assignment
+                </i> InLab
+            </strong>
+
+    </div>
 </md-toolbar>
+
+<style>
+    tbody > tr {
+        cursor: pointer;
+    }
+
+    .md-button.md-fab.md-fab-bottom-right {
+        top: auto;
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        position: fixed;
+    }
+
+    #THINGS{
+        padding: 30px;
+    }
+
+    td{
+        padding-left: 30px;
+    }
+
+</style>
 
 <div layout="row">
     <sidenav></sidenav>
-
     <div ng-cloak md-scroll-y class="form" flex layout="column">
-      <div>
-        <div id='THINGS'>
-            <md-list>
-                <md-list-item class="small-font-medium topic">
-                    <p class="md-list-item-text" flex><strong> No. Patrimonio </strong></p>
-                    <p class="md-list-item-text" flex><strong> No. Série </strong></p>
-                    <p class="md-list-item-text" flex><strong> Descrisção </strong></p>
-                    <p class="md-list-item-text" flex><strong> Marca/Modelo </strong></p>
-                    <p class="md-list-item-text" flex><strong> Situação </strong></p>
-                </md-list-item>
+        <div>
+            <div id='THINGS'>
                 <br>
-                <md-divider></md-divider>
+                <table ng-cloak class="highlight margin bordered">
+                    <thead>
+                    <tr class="card-panel cyan">
+                        <td><strong><span class="white-text">Nº Patrimônio</span></strong></td>
+                        <td><strong><span class="white-text">Nº Série</span></strong></td>
+                        <td><strong><span class="white-text">Descrição</span></strong></td>
+                        <td><strong><span class="white-text">Marca/Modelo</span></strong></td>
+                        <td><strong><span class="white-text">Situação</span></strong></td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
+                        <td class="light">{{thing.number_Patrimony}}</td>
+                        <td class="light">{{thing.serie}}</td>
+                        <td class="light">{{thing.description}}</td>
+                        <td class="light">{{thing.brand_model}}</td>
+                        <td class="light">{{thing.situation}}</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
                 <br>
-                <md-list-item class="small-font-medium topic" ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
-                        <p class="md-list-item-text" flex>{{thing.number_Patrimony}}</p>
-                        <p class="md-list-item-text" flex>{{thing.serie}}</p>
-                        <p class="md-list-item-text"flex>{{thing.description}} </p>
-                        <p class="md-list-item-text"flex>{{thing.brand_model}}</p>
-                        <p class="md-list-item-text"flex>{{thing.situation}}</p>
-                </md-list-item>
-            </md-list>
-            <div id="FAB-BUTTON">
-                <md-button ng-click="goTo('create-edit-thing')" aria-label="menu" class="md-fab" id="criarNovoObjeto">
-                    <md-icon style="padding-bottom: 20px; color: #FFF">add</md-icon>
+
+                <md-button ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
+                    <md-icon>add</md-icon>
                 </md-button>
             </div>
         </div>
-      </div>
     </div>
 
 </div>
