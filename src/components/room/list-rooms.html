@@ -37,26 +37,18 @@
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
-            <div id='MACHINES'>
+            <div id='ROOMS'>
                 <br>
                 <table ng-cloak class="highlight margin bordered">
                     <thead>
                     <tr class="card-panel cyan">
-                        <td><strong><span class="white-text">Patrimônio</span></strong></td>
-                        <td><strong><span class="white-text">Patrimônio ints</span></strong></td>
-                        <td><strong><span class="white-text">Descriçao</span></strong></td>
-                        <td><strong><span class="white-text">Usuario</span></strong></td>
                         <td><strong><span class="white-text">Sala</span></strong></td>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
-                        <td class="light">{{machine.number_Patrimony}}</td>
-                        <td class="light">{{machine.inst_Patrimony}}</td>
-                        <td class="light">{{machine.description}}</td>
-                        <td class="light">{{machine.machine_user}}</td>
-                        <td class="light">{{machine.room}}</td>
+                    <tr ng-repeat="room in listRooms" ng-click="showRoom(room.name)">
+                        <td class="light">{{room.name}}</td>
                     </tr>
 
                     </tbody>
@@ -65,9 +57,6 @@
 
                 <br>
 
-                <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
-                    <md-icon>add</md-icon>
-                </md-button>
             </div>
         </div>
     </div>

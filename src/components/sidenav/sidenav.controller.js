@@ -54,7 +54,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Salas',
                     icon: 'map',
-                    link: 'salas'
+                    link: 'listing-rooms'
                 },
 
                 {

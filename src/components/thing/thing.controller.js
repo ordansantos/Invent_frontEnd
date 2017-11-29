@@ -1,4 +1,4 @@
-angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, $stateParams) {
+angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams) {
 
 	var myScope = $scope;
 
@@ -6,6 +6,17 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   $scope.editable = false;
 
   var idThing = $stateParams.idThing;
+
+	$scope.listRooms;
+
+
+	listRooms = function (){
+		RoomFactory.getRooms().then(function(result){
+			myScope.listRooms = result;
+		})
+	};
+
+	listRooms();
 
   myScope.getThing = function (id) {
       console.log(id);
