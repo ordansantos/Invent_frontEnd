@@ -40,7 +40,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 },
 
                 {
-                    name: 'Maquinas',
+                    name: 'Máquinas',
                     icon: 'computer',
                     link: 'list-machines'
                 },
@@ -71,4 +71,8 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
 
         }
     };
+
+    myScope.getClass = function (path) {
+        return ($location.path().substr(1, path.length) === path) ? 'blue' : 'grey-A100';
+    }
 });
