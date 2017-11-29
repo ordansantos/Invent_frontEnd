@@ -37,6 +37,28 @@
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
       <div>
+        <div>
+          <md-input-container style="background-color=#90CAF9">
+            <label>Pesquisar por Patrimonio</label>
+            <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por N.Série</label>
+            <input type="text" ng-model="search.serie" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Descrição</label>
+            <input type="text" ng-model="search.description" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Marca/Modelo</label>
+            <input type="text" ng-model="search.brand_model" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Situação</label>
+            <input type="text" ng-model="search.situation" flex-gt-sm="">
+          </md-input-container>
+        </div
         <div id='THINGS'>
             <md-list>
                 <md-list-item class="small-font-medium topic" >
@@ -47,7 +69,7 @@
                     <p flex="20"><strong> Situação </strong></p>
                 </md-list-item>
                 <br>
-                <table ng-cloak class="highlight margin bordered">
+                <!-- <table ng-cloak class="highlight margin bordered">
                     <thead>
                     <tr class="card-panel cyan">
                         <td><strong><span class="white-text">Nº Patrimônio</span></strong></td>
@@ -69,16 +91,22 @@
 
                     </tbody>
 
-                </table>
+                </table> -->
 
                 <br>
                 <!-- ng-click="showThing(thing._id)" -->
-                <md-list-item  ng-click="showThing(thing._id)" ng-repeat="thing in listThings">
+                <md-list-item  ng-click="showThing(thing._id)" ng-repeat="thing in listThings | filter:search:search.number_Patrimony
+                                                                                              | filter:search:search.serie
+                                                                                              | filter:search:search.number_Patrimony
+                                                                                              | filter:search:search.description
+                                                                                              | filter:search:search.brand_model
+                                                                                              | filter:search:search.situation">
                         <p flex="20" >{{thing.number_Patrimony}}</p>
                         <p flex="15" >{{thing.serie}}</p>
                         <p flex="25" >{{thing.description}} </p>
                         <p style="margin=center">{{thing.brand_model}}</p>
                         <p flex="15">{{thing.situation}}</p>
+                        <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
             </md-list>
             <div id="FAB-BUTTON">
