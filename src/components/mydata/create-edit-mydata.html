@@ -7,30 +7,91 @@
     <div class="form" flex layout="column" ng-cloak>
 
         <md-content layout-padding="" flex="">
+
             <div>
-                <form name="mydataForm">
+                <form name="mydataForm" novalidate>
 
                     <div layout-gt-sm="row">
-                            <md-input-container class="md-block" flex-gt-sm="">
+                        <md-input-container class="md-block" flex-gt-sm="">
+
                             <label>Nome</label>
-                            <input ng-model="mydata.name">
+                            <input type="text" name="name" ng-model="mydata.name" ng-minlength="3" ng-maxlength="30" required/>
+                            <div ng-messages="mydataForm.name.$error" ng-messages-multiple ng-show="mydataForm.name.$touched && mydataForm.name.$invalid">
+                                <div ng-message="required">
+                                    Você esqueceu de colocar seu nome, ex: Carlos
+                                </div>
+                                <div ng-message="minlength">
+                                    Seu nome é muito curto
+                                </div>
+                                <div ng-message="maxlength">
+                                    Seu nome é muito longo
+                                </div>
+                            </div>
+
                         </md-input-container>
 
                         <md-input-container class="md-block" flex-gt-sm="">
+
                             <label>Email</label>
-                            <input ng-model="mydata.email">
+                            <input type="email" name="email" ng-model="mydata.email"  ng-minlength="5"  ng-maxlength="30" required/>
+                            <div ng-messages="mydataForm.email.$error" ng-messages-multiple ng-show="mydataForm.email.$touched && mydataForm.email.$invalid">
+                                <div ng-message="required">
+                                    Você esqueceu de colocar seu email
+                                </div>
+                                <div ng-message="email" >
+                                    O email não é válido, ex: carlos@ccc.edu.br
+                                </div>
+                                <div ng-message="minlength">
+                                    Seu email é muito curto
+                                </div>
+                                <div ng-message="maxlength">
+                                    Seu email é muito longo
+                                </div>
+                            </div>
+
                         </md-input-container>
+
                     </div>
 
+
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex-gt-sm="">
+
                             <label>Sala</label>
-                            <input ng-model="mydata.room">
+                            <input type="text" name="sala" ng-model="mydata.room" />
+                            <!-- Validação
+                            <div ng-messages="mydataForm.sala.$error" ng-messages-multiple ng-show="mydataForm.sala.$touched && mydataForm.sala.$invalid">
+                                <div ng-message="required">
+                                    Você esqueceu de especificar a sala, ex: Sala 101
+                                </div>
+                                <div ng-message="minlength">
+                                    O nome da sala é muito curto
+                                </div>
+                                <div ng-message="maxlength">
+                                    O nome da sala é muito longo
+                                </div>
+                            </div>
+                            -->
                         </md-input-container>
 
                         <md-input-container class="md-block" flex-gt-sm="">
+
                             <label>Tipo de usuário</label>
-                            <input ng-model="mydata.userKind">
+                            <input type="text" name="userkind" ng-model="mydata.userKind" />
+                            <!-- Validação
+                            <div ng-messages="mydataForm.userkind.$error" ng-messages-multiple ng-show="mydataForm.userkind.$touched && mydataForm.userkind.$invalid">
+                                <div ng-message="required">
+                                    Você esqueceu de especificar o tipo de usário
+                                </div>
+                                <div ng-message="minlength">
+                                    O nome é muito curto
+                                </div>
+                                <div ng-message="maxlength">
+                                    O nome é muito longo
+                                </div>
+                            </div>
+                            -->
+
                         </md-input-container>
                     </div>
 

@@ -14,13 +14,58 @@
 
     <div class="form" flex layout="column" ng-cloak>
 
-      <md-content  flex="">
-        <div>
-          <form name="thingForm">
+    <md-content layout-padding="" flex="">
+      <div>
+        <form name="thingForm" novalidate>
 
-              <md-input-container class="md-block">
-              <label>Descrição</label>
-              <textarea ng-model="thing.description" md-maxlenght="150" rows="2" md-select-on-focus=""></textarea>
+          <md-input-container class="md-block">
+
+            <label>Descrição</label>
+            <textarea name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required></textarea>
+
+            <div ng-messages="thingForm.description.$error" ng-messages-multiple ng-show="thingForm.description.$touched && thingForm.description.$invalid">
+              <div ng-message="required">
+                Você precisa descrever o objeto
+              </div>
+            </div>
+          </md-input-container>
+
+          <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-xs="">
+              <label>Número de patrimônio</label>
+              <input type="number" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
+
+              <!-- Validação
+                <div ng-messages="thingForm.numberPatrimony.$error" ng-messages-multiple ng-show="thingForm.numberPatrimony.$touched && thingForm.numberPatrimony.$invalid">
+                <div ng-message="required">
+                  Você precisa inserir um número de patrimônio
+                </div>
+                <div ng-message="minlength">
+                  O número de patrimônio é muito curto
+                </div>
+                <div ng-message="maxlength">
+                  O número de patrimônio é muito longo
+                </div>
+              </div> -->
+
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="">
+
+              <label>Número de Série</label>
+              <input type="number" name="numberSerie" ng-model="thing.serie" />
+              <!-- Validação
+              <div ng-messages="thingForm.numberSerie.$error" ng-messages-multiple ng-show="thingForm.numberSerie.$touched && thingForm.numberSerie.$invalid">
+                <div ng-message="required">
+                  Você precisa inserir um número de série
+                </div>
+                <div ng-message="minlength">
+                  O número de série é muito curto
+                </div>
+                <div ng-message="maxlength">
+                  O número de série é muito longo
+                </div>
+              </div> -->
+
             </md-input-container>
 
             <div layout-gt-xs="row">
@@ -33,43 +78,69 @@
                 <input ng-model="thing.serie">
               </md-input-container>
 
-            </div>
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
 
-            <div layout-gt-sm="row">
-              <md-input-container class="md-block" flex-gt-sm="">
-                <label>Origem</label>
-                <input ng-model="thing.origem">
-              </md-input-container>
+              <label>Origem</label>
+              <input type="text" name="origin" ng-model="thing.origem">
 
-              <md-input-container class="md-block" flex-gt-sm="">
-                <label>Marca/Modelo</label>
-                <input ng-model="thing.brand_model">
-              </md-input-container>
-            </div>
+            </md-input-container>
 
-            <div layout-gt-sm="row">
-              <!--<md-input-container class="md-block" flex-gt-sm="">
-                <label>Sala</label>
-                <input ng-model="thing.room">
-              </md-input-container>-->
+            <md-input-container class="md-block" flex-gt-sm="">
 
-              <md-input-container class="md-block" flex-gt-sm="">
-                <label>Sala</label>
-                <md-select ng-model="thing.room" name="room">
-                  <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
-                </md-select>
-              </md-input-container>
+              <label>Marca/Modelo</label>
+              <input type="text" name="brandModel" ng-model="thing.brand_model">
 
-              <md-input-container class="md-block" flex-gt-sm="">
-                <label>Situação</label>
-                <md-select ng-model="thing.situation">
-                  <md-option value="bom">BOM</md-option>
-                  <md-option value="ruim">RUIM</md-option>
-                  <md-option value="desuso">DESUSO</md-option>
-                  <md-option value="doação">DOAÇÂO</md-option>
-                </md-select>
-              </md-input-container>
+            </md-input-container>
+          </div>
 
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+
+              <label>Sala</label>
+              <input type="text" name="room" ng-model="thing.room" />
+
+              <!-- Validação
+              <div ng-messages="thingForm.room.$error" ng-messages-multiple ng-show="thingForm.room.$touched && thingForm.room.$invalid">
+                <div ng-message="required">
+                  Você precisa inserir uma sala
+                </div>
+                <div ng-message="minlength">
+                  O nome da sala é muito curto
+                </div>
+                <div ng-message="maxlength">
+                  O nome da sala é muito longo
+                </div>
+              </div> -->
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Situação</label>
+              <md-select name="situation" ng-model="thing.situation" />
+                <md-option value="bom">BOM</md-option>
+                <md-option value="ruim">RUIM</md-option>
+                <md-option value="desuso">DESUSO</md-option>
+                <md-option value="doação">DOAÇÂO</md-option>
+              </md-select>
+
+              <!-- Validação
+              <div ng-messages="thingForm.situation.$error" ng-messages-multiple ng-show="thingForm.situation.$touched && thingForm.situation.$invalid">
+                <div ng-message="required">
+                  Você precisa selecionar uma situação
+                </div>
+              </div>
+              -->
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm="">
+
+              <label>Data de aquisição</label>
+              <md-datepicker name="acquisitionDate" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
+
+            </md-input-container>
+
+          </div>
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Data de aquisição</label>
                 <md-datepicker ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>

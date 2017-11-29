@@ -19,71 +19,90 @@
           <div>
               <form name="machineForm">
 
+                  <md-input-container class="md-block" flex-gt-xs="">
+                      <label>Descrição</label>
+                      <textarea ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required></textarea>
+                      <div ng-messages="machineForm.machineDescription.$error">
+                          <div ng-message="required"> Este campo é obrigatório! </div>
+                      </div>
+                  </md-input-container>
+
                   <div layout-gt-xs="row">
-                      <md-input-container class="md-block" flex-gt-xs="">
-                          <label>IP público</label>
-                          <input ng-model="machine.public_ip">
-                      </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-xs="">
-                          <label>Descrição</label>
-                          <input ng-model="machine.description">
+                          <label>IP público</label>
+                          <input type="text" ng-model="machine.public_ip" name="publicIP">
+                      </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Usuário da Máquina</label>
+                          <input type="text" ng-model="machine.machine_user" name="machineUser">
+
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Usuário da Máquina</label>
-                          <input ng-model="machine.machine_user">
-                      </md-input-container>
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Processador</label>
                           <input ng-model="machine.processor">
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>HD</label>
                           <input ng-model="machine.hd">
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Memória RAM</label>
                           <input ng-model="machine.ram_memory">
                       </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Número de Patrimônio</label>
+                          <input type="number" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
+
+                      </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Número de Patrimônio</label>
-                          <input ng-model="machine.number_Patrimony">
-                      </md-input-container>
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Patrimônio Inst</label>
-                          <input ng-model="machine.inst_Patrimony">
-                      </md-input-container>
-                  </div>
+                          <input ng-model="machine.inst_Patrimony" name="instPatrimony">
 
-                  <div layout-gt-sm="row">
+                      </md-input-container>
+
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Monitor</label>
                           <input ng-model="machine.monitor">
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio do Monitor </label>
-                          <input ng-model="machine.monitor_number_Patrimony">
+                          <input type="number" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
+
+                      </md-input-container>
+
+                      <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Patrimônio Monitor Inst</label>
+                          <input ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
+
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
-                      <md-input-container class="md-block" flex-gt-sm="">
-                          <label>Patrimônio Monitor Inst</label>
-                          <input ng-model="machine.inst_monitor_Patrimony">
-                      </md-input-container>
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Sala</label>
@@ -91,22 +110,26 @@
                               <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
                           </md-select>
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Situação</label>
-                          <md-select ng-model="machine.situation">
+                          <md-select ng-model="machine.situation" name="machineSituation">
                               <md-option value="bom">BOM</md-option>
                               <md-option value="ruim">RUIM</md-option>
                               <md-option value="desuso">DESUSO</md-option>
                               <md-option value="doação">DOAÇÂO</md-option>
                           </md-select>
+
                       </md-input-container>
+                  </div>
+
+                  <div layout-gt-sm="row">
+
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Data de aquisição</label>
-                          <md-datepicker ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+                          <md-datepicker ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
+
                       </md-input-container>
                   </div>
 
