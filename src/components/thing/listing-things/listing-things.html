@@ -1,30 +1,112 @@
 <md-toolbar>
-    <div class="md-toolbar-tools">O logo aqui</div>
+    <div class="md-toolbar-tools blue">
+
+            <strong>
+                <i class="material-icons left">
+                    assignment
+                </i> InLab
+            </strong>
+
+    </div>
 </md-toolbar>
+
+<style>
+    tbody > tr {
+        cursor: pointer;
+    }
+
+    .md-button.md-fab.md-fab-bottom-right {
+        top: auto;
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        position: fixed;
+    }
+
+    #THINGS{
+        padding: 30px;
+    }
+
+    td{
+        padding-left: 30px;
+    }
+
+</style>
 
 <div layout="row">
     <sidenav></sidenav>
-
     <div ng-cloak md-scroll-y class="form" flex layout="column">
       <div>
+        <div>
+          <md-input-container style="background-color=#90CAF9">
+            <label>Pesquisar por Patrimonio</label>
+            <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por N.Série</label>
+            <input type="text" ng-model="search.serie" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Descrição</label>
+            <input type="text" ng-model="search.description" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Marca/Modelo</label>
+            <input type="text" ng-model="search.brand_model" flex-gt-sm="">
+          </md-input-container>
+          <md-input-container>
+            <label>Pesquisar por Situação</label>
+            <input type="text" ng-model="search.situation" flex-gt-sm="">
+          </md-input-container>
+        </div
         <div id='THINGS'>
             <md-list>
-                <md-list-item class="small-font-medium topic">
-                    <p class="md-list-item-text" flex><strong> No. Patrimonio </strong></p>
-                    <p class="md-list-item-text" flex><strong> No. Série </strong></p>
-                    <p class="md-list-item-text" flex><strong> Descrisção </strong></p>
-                    <p class="md-list-item-text" flex><strong> Marca/Modelo </strong></p>
-                    <p class="md-list-item-text" flex><strong> Situação </strong></p>
+                <md-list-item class="small-font-medium topic" >
+                  <p flex="25"><strong> No. Patrimonio </strong></p>
+                    <p flex="30" ><strong> No. Série </strong></p>
+                    <p flex="30"><strong> Descrisção </strong></p>
+                    <p flex="30"><strong> Marca/Modelo </strong></p>
+                    <p flex="20"><strong> Situação </strong></p>
                 </md-list-item>
                 <br>
-                <md-divider></md-divider>
+                <!-- <table ng-cloak class="highlight margin bordered">
+                    <thead>
+                    <tr class="card-panel cyan">
+                        <td><strong><span class="white-text">Nº Patrimônio</span></strong></td>
+                        <td><strong><span class="white-text">Nº Série</span></strong></td>
+                        <td><strong><span class="white-text">Descrição</span></strong></td>
+                        <td><strong><span class="white-text">Marca/Modelo</span></strong></td>
+                        <td><strong><span class="white-text">Situação</span></strong></td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
+                        <td class="light">{{thing.number_Patrimony}}</td>
+                        <td class="light">{{thing.serie}}</td>
+                        <td class="light">{{thing.description}}</td>
+                        <td class="light">{{thing.brand_model}}</td>
+                        <td class="light">{{thing.situation}}</td>
+                    </tr>
+
+                    </tbody>
+
+                </table> -->
+
                 <br>
-                <md-list-item class="small-font-medium topic" ng-repeat="thing in listThings" ng-click="showThing(thing._id)">
-                        <p class="md-list-item-text" flex>{{thing.number_Patrimony}}</p>
-                        <p class="md-list-item-text" flex>{{thing.serie}}</p>
-                        <p class="md-list-item-text"flex>{{thing.description}} </p>
-                        <p class="md-list-item-text"flex>{{thing.brand_model}}</p>
-                        <p class="md-list-item-text"flex>{{thing.situation}}</p>
+                <!-- ng-click="showThing(thing._id)" -->
+                <md-list-item  ng-click="showThing(thing._id)" ng-repeat="thing in listThings | filter:search:search.number_Patrimony
+                                                                                              | filter:search:search.serie
+                                                                                              | filter:search:search.number_Patrimony
+                                                                                              | filter:search:search.description
+                                                                                              | filter:search:search.brand_model
+                                                                                              | filter:search:search.situation">
+                        <p flex="20" >{{thing.number_Patrimony}}</p>
+                        <p flex="15" >{{thing.serie}}</p>
+                        <p flex="25" >{{thing.description}} </p>
+                        <p style="margin=center">{{thing.brand_model}}</p>
+                        <p flex="15">{{thing.situation}}</p>
+                        <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
             </md-list>
             <div id="FAB-BUTTON">
@@ -33,7 +115,6 @@
                 </md-button>
             </div>
         </div>
-      </div>
     </div>
 
 </div>

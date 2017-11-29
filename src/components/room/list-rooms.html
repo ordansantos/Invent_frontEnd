@@ -1,0 +1,64 @@
+<md-toolbar>
+    <div class="md-toolbar-tools blue">
+
+        <strong>
+            <i class="material-icons left">
+                assignment
+            </i> InLab
+        </strong>
+
+    </div>
+</md-toolbar>
+
+<style>
+    tbody > tr {
+        cursor: pointer;
+    }
+
+    .md-button.md-fab.md-fab-bottom-right {
+        top: auto;
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        position: fixed;
+    }
+
+    #MACHINES{
+        padding: 30px;
+    }
+
+    td{
+        padding-left: 30px;
+    }
+
+</style>
+
+<div layout="row">
+    <sidenav></sidenav>
+    <div ng-cloak md-scroll-y class="form" flex layout="column">
+        <div>
+            <div id='ROOMS'>
+                <br>
+                <table ng-cloak class="highlight margin bordered">
+                    <thead>
+                    <tr class="card-panel cyan">
+                        <td><strong><span class="white-text">Sala</span></strong></td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="room in listRooms" ng-click="showRoom(room.name)">
+                        <td class="light">{{room.name}}</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+</div>

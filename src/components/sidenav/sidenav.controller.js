@@ -54,7 +54,7 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
                 {
                     name: 'Salas',
                     icon: 'map',
-                    link: 'salas'
+                    link: 'listing-rooms'
                 },
 
                 {
@@ -71,4 +71,8 @@ angular.module('Invent').controller('SidenavController', function($scope, $state
 
         }
     };
+
+    myScope.getClass = function (path) {
+        return ($location.path().substr(1, path.length) === path) ? 'blue' : 'grey-A100';
+    }
 });

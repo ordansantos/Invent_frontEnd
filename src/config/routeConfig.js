@@ -39,5 +39,15 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
           controller: 'MyDataController'
         })
 
+      .state('listing-rooms', {
+          url: '/listing-rooms',
+          templateUrl: 'src/components/room/list-rooms.html',
+          controller: 'RoomController'
+      })
 
+      .state('list-objetcs-room', {
+          url: '/list-objetcs-room/:room',
+          templateUrl: 'src/components/room/list-objects-room/list-objects-room.html',
+          controller: 'ListObjectsRoomController'
+      })
 });

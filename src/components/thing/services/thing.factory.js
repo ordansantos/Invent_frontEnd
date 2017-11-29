@@ -27,6 +27,27 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             });
         },
 
+        listThingsInRoom: function (room) {
+
+            data = {room : room};
+            var req = {
+                method: 'POST',
+                url: myIp + '/thingsInRoom',
+                data: data,
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+
+            };
+
+
+            return $http(req).then(function (response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("Erro na request de things!", response);
+            });
+        },
+
         getThing: function (id) {
             var req = {
                 method: 'GET',
