@@ -9,7 +9,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
 
-    if($scope.machine =! undefined){
+    if($scope.machine != undefined){
         console.log($scope.machine);
         $scope.acquisition_date = new Date();
     }
