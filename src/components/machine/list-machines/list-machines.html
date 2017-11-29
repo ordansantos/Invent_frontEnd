@@ -38,7 +38,30 @@
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
             <div id='MACHINES'>
-                <br>
+              <div>
+                <div id='THINGS'>
+                  <md-list> 
+                    <md-list-item class="small-font-medium topic">
+                        <p class="md-list-item-text" flex><strong> Patrimônio </strong></p>
+                        <p class="md-list-item-text" flex><strong> Patrimônio ints </strong></p>
+                        <p class="md-list-item-text" flex><strong> Nome </strong></p>
+                        <p class="md-list-item-text" flex><strong> Usuario </strong></p>
+                        <p class="md-list-item-text" flex><strong> Sala </strong></p>
+
+                    </md-list-item>
+                    <br>
+                    <md-divider></md-divider>
+                    <br>
+                    <md-list-item class="small-font-medium topic" ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
+                        <p class="md-list-item-text" flex>{{machine.property}}</p>
+                        <p class="md-list-item-text"flex>{{machine.inst_property}} </p>
+                        <p class="md-list-item-text"flex>{{machine.name}} </p>
+                        <p class="md-list-item-text"flex>{{machine.machine_user}}</p>
+                        <p class="md-list-item-text"flex>{{machine.room}}</p>
+                    </md-list-item>
+                </md-list>
+            </div>
+                <!-- <br>
                 <table ng-cloak class="highlight margin bordered">
                     <thead>
                     <tr class="card-panel cyan">
@@ -61,7 +84,7 @@
 
                     </tbody>
 
-                </table>
+                </table> -->
 
                 <br>
 
