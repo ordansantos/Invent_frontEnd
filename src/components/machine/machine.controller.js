@@ -1,4 +1,4 @@
-angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, $stateParams) {
+angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams) {
 
     var myScope = $scope;
 
@@ -8,8 +8,18 @@ angular.module('Invent').controller('MachineController', function($scope, $state
 
     $scope.acquisition_date = new Date();
 
+    $scope.listRooms;
+
 
     var idMachine = $stateParams.idMachine;
+
+    listRooms = function (){
+        RoomFactory.getRooms().then(function(result){
+            myScope.listRooms = result;
+        })
+    };
+
+    listRooms();
 
     myScope.getMachine = function (id) {
         console.log(id);
