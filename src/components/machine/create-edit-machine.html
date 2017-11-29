@@ -65,7 +65,7 @@
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio</label>
-                          <input type="number" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
+                          <input type="text" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
 
                       </md-input-container>
                   </div>
@@ -90,7 +90,7 @@
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio do Monitor </label>
-                          <input type="number" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
+                          <input type="text" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
 
                       </md-input-container>
 
@@ -143,9 +143,6 @@
                   <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>
                   </div>
-
-                  {{machine}}
-
               </form>
           </div>
       </md-content>

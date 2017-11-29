@@ -33,13 +33,13 @@
           <div layout-gt-xs="row">
                 <md-input-container class="md-block" flex-gt-xs="">
                       <label>Número de patrimônio</label>
-                      <input type="number" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
+                      <input type="text" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
 
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm="">
 
                   <label>Número de Série</label>
-                  <input type="number" name="numberSerie" ng-model="thing.serie" />
+                  <input type="text" name="numberSerie" ng-model="thing.serie" />
 
 
                 </md-input-container>
@@ -85,7 +85,7 @@
               <md-input-container class="md-block" flex-gt-sm="">
 
                 <label>Data de aquisição</label>
-                <md-datepicker name="acquisitionDate" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
+                <md-datepicker type="date" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
 
               </md-input-container>
 
