@@ -44,7 +44,7 @@
                     <tr class="card-panel cyan">
                         <td><strong><span class="white-text">Patrimônio</span></strong></td>
                         <td><strong><span class="white-text">Patrimônio ints</span></strong></td>
-                        <td><strong><span class="white-text">Nome</span></strong></td>
+                        <td><strong><span class="white-text">Descriçao</span></strong></td>
                         <td><strong><span class="white-text">Usuario</span></strong></td>
                         <td><strong><span class="white-text">Sala</span></strong></td>
                     </tr>
@@ -54,7 +54,7 @@
                     <tr ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
                         <td class="light">{{machine.number_Patrimony}}</td>
                         <td class="light">{{machine.inst_Patrimony}}</td>
-                        <td class="light">{{machine.name}}</td>
+                        <td class="light">{{machine.description}}</td>
                         <td class="light">{{machine.machine_user}}</td>
                         <td class="light">{{machine.room}}</td>
                     </tr>

@@ -5,23 +5,29 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
     myScope.listMachinesInRoom;
     myScope.listThingsInRoom;
 
-    myScope.listResult = listMachinesInRoom.concat(listThingsInRoom);
+    myScope.listResult;
+
+    var room = $stateParams.room;
+
+    console.log($stateParams.room);
 
     listMachinesInRoom = function (room) {
         MachineFactory.listMachinesInRoom(room).then(function(result){
             myScope.listMachinesInRoom = result;
+
         })
     };
 
     listThingsInRoom = function (room) {
         ThingFactory.listThingsInRoom(room).then(function(result){
             myScope.listThingsInRoom = result;
+            myScope.listResult = myScope.listMachinesInRoom.concat(myScope.listThingsInRoom);
         })
     };
 
-    listMachinesInRoom('Sala 102');
+    listMachinesInRoom($stateParams.room);
 
-    listThingsInRoom('Sala 102');
+    listThingsInRoom($stateParams.room);
 
 
 });

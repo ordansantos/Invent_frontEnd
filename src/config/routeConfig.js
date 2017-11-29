@@ -46,7 +46,7 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
       })
 
       .state('list-objetcs-room', {
-          url: '/list-objetcs-room',
+          url: '/list-objetcs-room/:room',
           templateUrl: 'src/components/room/list-objects-room/list-objects-room.html',
           controller: 'ListObjectsRoomController'
       })

@@ -47,7 +47,7 @@
                     </thead>
 
                     <tbody>
-                    <tr ng-repeat="room in listRooms">
+                    <tr ng-repeat="room in listRooms" ng-click="showRoom(room.name)">
                         <td class="light">{{room.name}}</td>
                     </tr>
 
