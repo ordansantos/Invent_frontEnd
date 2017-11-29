@@ -10,29 +10,6 @@
     </div>
 </md-toolbar>
 
-<style>
-    tbody > tr {
-        cursor: pointer;
-    }
-
-    .md-button.md-fab.md-fab-bottom-right {
-        top: auto;
-        right: 20px;
-        bottom: 20px;
-        left: auto;
-        position: fixed;
-    }
-
-    #MACHINES{
-        padding: 30px;
-    }
-
-    td{
-        padding-left: 30px;
-    }
-
-</style>
-
 <div layout="row">
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
@@ -53,41 +30,14 @@
                     <md-divider></md-divider>
                     <br>
                     <md-list-item class="small-font-medium topic" ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
-                        <p class="md-list-item-text" flex>{{machine.property}}</p>
-                        <p class="md-list-item-text"flex>{{machine.inst_property}} </p>
-                        <p class="md-list-item-text"flex>{{machine.name}} </p>
+                        <p class="md-list-item-text" flex>{{machine.number_Patrimony}}</p>
+                        <p class="md-list-item-text"flex>{{machine.inst_Patrimony}} </p>
+                        <p class="md-list-item-text"flex>{{machine.description}} </p>
                         <p class="md-list-item-text"flex>{{machine.machine_user}}</p>
                         <p class="md-list-item-text"flex>{{machine.room}}</p>
                     </md-list-item>
                 </md-list>
             </div>
-                <!-- <br>
-                <table ng-cloak class="highlight margin bordered">
-                    <thead>
-                    <tr class="card-panel cyan">
-                        <td><strong><span class="white-text">Patrimônio</span></strong></td>
-                        <td><strong><span class="white-text">Patrimônio ints</span></strong></td>
-                        <td><strong><span class="white-text">Descriçao</span></strong></td>
-                        <td><strong><span class="white-text">Usuario</span></strong></td>
-                        <td><strong><span class="white-text">Sala</span></strong></td>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
-                        <td class="light">{{machine.number_Patrimony}}</td>
-                        <td class="light">{{machine.inst_Patrimony}}</td>
-                        <td class="light">{{machine.description}}</td>
-                        <td class="light">{{machine.machine_user}}</td>
-                        <td class="light">{{machine.room}}</td>
-                    </tr>
-
-                    </tbody>
-
-                </table> -->
-
-                <br>
-
                 <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
                     <md-icon>add</md-icon>
                 </md-button>

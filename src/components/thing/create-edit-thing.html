@@ -95,10 +95,12 @@
           </div>
 
           <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm="">
 
-              <label>Sala</label>
-              <input type="text" name="room" ng-model="thing.room" />
+              <md-input-container class="md-block" flex-gt-sm="">
+                <label>Sala</label>
+                <md-select ng-model="thing.room" name="room">
+                  <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
+                </md-select>
 
               <!-- Validação
               <div ng-messages="thingForm.room.$error" ng-messages-multiple ng-show="thingForm.room.$touched && thingForm.room.$invalid">
