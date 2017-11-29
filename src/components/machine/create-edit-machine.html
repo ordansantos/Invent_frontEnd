@@ -60,12 +60,12 @@
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Memória RAM</label>
-                          <input ng-model="machine.ram_memory">
+                          <input type="text" ng-model="machine.ram_memory">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio</label>
-                          <input type="number" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
+                          <input type="number" ng-model="machine.number_Patrimony">
 
                       </md-input-container>
                   </div>
@@ -96,7 +96,7 @@
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Patrimônio Monitor Inst</label>
-                          <input ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
+                          <input type="text" ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
 
                       </md-input-container>
                   </div>
@@ -121,14 +121,18 @@
                           </md-select>
 
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
+
+
                       <md-input-container class="md-block" flex-gt-sm="">
 
                           <label>Data de aquisição</label>
                           <md-datepicker ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
                       </md-input-container>
+
+                  </div>
+
+                  <div layout-gt-sm="">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Local de Destino</label>
                           <input ng-model="machine.destination">
@@ -136,6 +140,7 @@
                       </md-input-container>
 
                   </div>
+
 
                   <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>

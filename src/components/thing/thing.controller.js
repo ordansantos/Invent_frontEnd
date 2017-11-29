@@ -6,6 +6,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   $scope.editable = false;
 
   var idThing = $stateParams.idThing;
+  var today = new Date();
+      $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
 	$scope.listRooms;
 
