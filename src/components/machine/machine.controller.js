@@ -8,7 +8,12 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     var today = new Date();
     $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
-    $scope.acquisition_date = new Date();
+
+    if($scope.machine =! undefined){
+        console.log($scope.machine);
+        $scope.acquisition_date = new Date();
+    }
+
 
     $scope.listRooms;
 

@@ -142,18 +142,21 @@
 
               </md-input-container>
 
-          </div>
-              <md-input-container class="md-block" flex-gt-sm="">
-                <label>Data de aquisição</label>
-                <md-datepicker ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
-              </md-input-container>
 
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+              <label>Local de Destino</label>
+              <input ng-model="thing.destination">
+            </md-input-container>
 
 
             <md-input-container class="md-block">
               <label>Comentários</label>
               <textarea ng-model="thing.comments" md-maxlength="150" rows="2" md-select-on-focus=""></textarea>
             </md-input-container>
+
 
             <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
               <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
