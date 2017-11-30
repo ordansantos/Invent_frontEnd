@@ -1,11 +1,11 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
 
-        <strong>
+        <!-- <strong>
             <i class="material-icons left">
                 assignment
             </i> InLab
-        </strong>
+        </strong> -->
 
     </div>
 </md-toolbar>
@@ -21,7 +21,7 @@
 
                   <md-input-container class="md-block" flex-gt-xs="">
                       <label>Descrição</label>
-                      <textarea ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required></textarea>
+                      <input ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required>
                       <div ng-messages="machineForm.machineDescription.$error">
                           <div ng-message="required"> Este campo é obrigatório! </div>
                       </div>

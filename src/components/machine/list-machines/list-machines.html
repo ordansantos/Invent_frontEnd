@@ -1,11 +1,11 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
 
-        <strong>
+        <!-- <strong>
             <i class="material-icons left">
                 assignment
             </i> InLab
-        </strong>
+        </strong> -->
 
     </div>
 </md-toolbar>
@@ -14,27 +14,50 @@
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
+          <div>
+            <div>
+              <md-input-container style="background-color=#90CAF9">
+                <label>Pesquisar por Patrimonio</label>
+                <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+              </md-input-container>
+              <md-input-container>
+                <label>Pesquisar por P.Inst.</label>
+                <input type="text" ng-model="search.inst_Patrimony" flex-gt-sm="">
+              </md-input-container>
+              <md-input-container>
+                <label>Pesquisar por Descrição</label>
+                <input type="text" ng-model="search.description" flex-gt-sm="">
+              </md-input-container>
+              <md-input-container>
+                <label>Pesquisar por Usuário</label>
+                <input type="text" ng-model="search.machine_user" flex-gt-sm="">
+              </md-input-container>
+              <md-input-container>
+                <label>Pesquisar por Sala</label>
+                <input type="text" ng-model="search.room" flex-gt-sm="">
+              </md-input-container>
+            </div>
             <div id='MACHINES'>
               <div>
-                <div id='THINGS'>
-                  <md-list> 
+                  <md-list>
                     <md-list-item class="small-font-medium topic">
-                        <p class="md-list-item-text" flex><strong> Patrimônio </strong></p>
-                        <p class="md-list-item-text" flex><strong> Patrimônio ints </strong></p>
-                        <p class="md-list-item-text" flex><strong> Nome </strong></p>
-                        <p class="md-list-item-text" flex><strong> Usuario </strong></p>
-                        <p class="md-list-item-text" flex><strong> Sala </strong></p>
+                        <p flex="33" flex><strong> Patrimônio </strong></p>
+                        <p flex="33" flex><strong> Patrimônio Ints. </strong></p>
+                        <p flex="33" flex><strong> Nome </strong></p>
+                        <p flex="33" flex><strong> Usuario </strong></p>
+                        <p flex="33" flex><strong> Sala </strong></p>
 
                     </md-list-item>
-                    <br>
-                    <md-divider></md-divider>
-                    <br>
-                    <md-list-item class="small-font-medium topic" ng-repeat="machine in machines" ng-click="showMachine(machine._id)">
-                        <p class="md-list-item-text" flex>{{machine.number_Patrimony}}</p>
-                        <p class="md-list-item-text"flex>{{machine.inst_Patrimony}} </p>
-                        <p class="md-list-item-text"flex>{{machine.description}} </p>
-                        <p class="md-list-item-text"flex>{{machine.machine_user}}</p>
-                        <p class="md-list-item-text"flex>{{machine.room}}</p>
+                    <md-list-item ng-click="showMachine(machine._id)" ng-repeat="machine in machines | filter:search:search.number_Patrimony
+                                                                                                     | filter:search:search.inst_Patrimony
+                                                                                                     | filter:search:search.description
+                                                                                                     | filter:search:search.machine_user
+                                                                                                     | filter:search:search.room">
+                        <p style=flex="20">{{machine.number_Patrimony}}</p>
+                        <p style=flex="15">{{machine.inst_Patrimony}} </p>
+                        <p style=flex="25">{{machine.description}} </p>
+                        <p style="margin=center">{{machine.machine_user}}</p>
+                        <p style=flex="15">{{machine.room}}</p>
                     </md-list-item>
                 </md-list>
             </div>
