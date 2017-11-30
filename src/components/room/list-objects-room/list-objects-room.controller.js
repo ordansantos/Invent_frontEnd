@@ -25,6 +25,12 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
         })
     };
 
+    myScope.showThing = function(id){
+      console.log("CHEGOU AQUI PAI");
+  		console.log(id);
+  		$state.go('create-edit-thing', { idThing : id});
+  	};
+
     listMachinesInRoom($stateParams.room);
 
     listThingsInRoom($stateParams.room);
