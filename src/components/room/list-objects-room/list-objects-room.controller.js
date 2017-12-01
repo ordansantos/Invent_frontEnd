@@ -9,8 +9,6 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
 
     var room = $stateParams.room;
 
-    console.log($stateParams.room);
-
     listMachinesInRoom = function (room) {
         MachineFactory.listMachinesInRoom(room).then(function(result){
             myScope.listMachinesInRoom = result;
@@ -26,8 +24,6 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
     };
 
     myScope.showThing = function(id){
-      console.log("CHEGOU AQUI PAI");
-  		console.log(id);
   		$state.go('create-edit-thing', { idThing : id});
   	};
 
