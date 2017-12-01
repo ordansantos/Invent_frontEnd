@@ -10,9 +10,9 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
         })
     };
 
-    myScope.showRoom = function(room){
-        console.log(room);
-        $state.go('list-objetcs-room', { room : room});
+    myScope.showRoom = function(room_name){
+        console.log(room_name);
+        $state.go('list-objetcs-room', { room : room_name});
     }
 
 
