@@ -21,7 +21,7 @@
           <md-input-container class="md-block">
 
             <label>Descrição</label>
-            <input name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required>
+            <input type="text" name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required>
 
             <div ng-messages="thingForm.description.$error" ng-messages-multiple ng-show="thingForm.description.$touched && thingForm.description.$invalid">
               <div ng-message="required">
@@ -95,22 +95,25 @@
           <div layout-gt-sm="row">
             <md-input-container class="md-block" flex-gt-sm="">
               <label>Local de Destino</label>
-              <input ng-model="thing.destination">
+              <input type="text" ng-model="thing.destination">
             </md-input-container>
 
 
-            <md-input-container class="md-block">
+            <md-input-container class="md-block" flex-gt-sm="">
               <label>Comentários</label>
-              <textarea ng-model="thing.comments" md-maxlength="150" rows="2" md-select-on-focus=""></textarea>
+              <input type="text" ng-model="thing.comments" md-maxlength="75" md-select-on-focus="">
             </md-input-container>
+          </div>
 
 
             <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
               <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
             </div>
+
             <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
               <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
             </div>
+
           </form>
         </div>
       </md-content>

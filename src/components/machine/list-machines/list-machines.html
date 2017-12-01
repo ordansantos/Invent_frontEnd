@@ -41,23 +41,26 @@
               <div>
                   <md-list>
                     <md-list-item class="small-font-medium topic">
-                        <p flex="33" flex><strong> Patrimônio </strong></p>
-                        <p flex="33" flex><strong> Patrimônio Ints. </strong></p>
-                        <p flex="33" flex><strong> Nome </strong></p>
-                        <p flex="33" flex><strong> Usuario </strong></p>
-                        <p flex="33" flex><strong> Sala </strong></p>
+                        <p flex><strong> Patrimônio </strong></p>
+                        <p flex><strong> Patrimônio Ints. </strong></p>
+                        <p flex><strong> Nome </strong></p>
+                        <p flex><strong> Usuario </strong></p>
+                        <p flex><strong> Sala </strong></p>
 
                     </md-list-item>
-                    <md-list-item ng-click="showMachine(machine._id)" ng-repeat="machine in machines | filter:search:search.number_Patrimony
-                                                                                                     | filter:search:search.inst_Patrimony
-                                                                                                     | filter:search:search.description
-                                                                                                     | filter:search:search.machine_user
-                                                                                                     | filter:search:search.room">
-                        <p style=flex="20">{{machine.number_Patrimony}}</p>
-                        <p style=flex="15">{{machine.inst_Patrimony}} </p>
-                        <p style=flex="25">{{machine.description}} </p>
-                        <p style="margin=center">{{machine.machine_user}}</p>
-                        <p style=flex="15">{{machine.room}}</p>
+                    <br>
+                    <md-list-item ng-repeat="machine in machines | filter:search:search.number_Patrimony
+                                                                 | filter:search:search.inst_Patrimony
+                                                                 | filter:search:search.description
+                                                                 | filter:search:search.machine_user
+                                                                 | filter:search:search.room">
+                        <p flex>{{machine.number_Patrimony}}</p>
+                        <p flex>{{machine.inst_Patrimony}} </p>
+                        <p flex>{{machine.description}} </p>
+                        <p flex>{{machine.machine_user}}</p>
+                        <p flex>{{machine.room}}</p>
+                        <a href="" ng-click="showMachine(machine._id)">ver</a>
+                        <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
                 </md-list>
             </div>
