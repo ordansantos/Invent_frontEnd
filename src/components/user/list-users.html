@@ -1,52 +1,45 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
-      <img width="200px" src="src/components/images/customLogo.png" alt="">
-        <!-- <strong>
+
+        <strong>
             <i class="material-icons left">
                 assignment
             </i> InLab
-        </strong> -->
+        </strong>
 
     </div>
 </md-toolbar>
+
 
 <div layout="row">
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
             <div id='USERS'>
-                <br>
-                <!-- <table ng-cloak class="highlight margin bordered">
-                    <thead>
-                    <tr class="card-panel cyan">
-                        <td><strong><span class="white-text">Nome</span></strong></td>
-                        <td><strong><span class="white-text">Email</span></strong></td>
-                        <td><strong><span class="white-text">Sala</span></strong></td>
-                        <td><strong><span class="white-text">Tipo de usuário</span></strong></td>
-                        <td><strong><span class="white-text"></span></strong></td>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr ng-repeat="user in users">
-                        <td class="light">{{user.name}}</td>
-                        <td class="light">{{user.email}}}</td>
-                        <td class="light">{{user.room}}</td>
-                        <td class="light">{{user.userKind}}</td>
-                        <td><md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></td>
-                    </tr>
-
-                    </tbody>
-
-                </table> -->
-
-                <br>
-
-                <md-button ng-click="goTo('')" id="" class="md-fab md-fab-bottom-right red lighten-2">
-                    <md-icon>add</md-icon>
-                </md-button>
+                <md-list>
+                  <md-list-item class="small-font-medium topic">
+                    <p class="md-list-item-text" flex><strong> Nome </strong></p>
+                    <p class="md-list-item-text" flex><strong> Email </strong></p>
+                    <p class="md-list-item-text" flex><strong> Sala </strong></p>
+                    <p class="md-list-item-text" flex><strong> Tipo de Usuário </strong></p>
+                    <p class="md-list-item-text" flex><strong></strong></p>
+                  </md-list-item>
+                  <br>
+                  <md-divider></md-divider>
+                  <br>
+                  <md-list-item class="small-font-medium topic" ng-repeat="user in users">
+                    <p class="md-list-item-text" flex>{{user.name}}</p>
+                    <p class="md-list-item-text" flex>{{user.email}}</p>
+                    <p class="md-list-item-text" flex>{{user.room}}</p>
+                    <p class="md-list-item-text" flex>{{user.userKind}}</p>
+                    <p class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></p>
+                  </md-list-item>
+                </md-list>
             </div>
         </div>
+        <md-button ng-click="goTo('create-user')" id="criarNovoUsuario" class="md-fab md-fab-bottom-right red lighten-2">
+          <md-icon>add</md-icon>
+        </md-button>
     </div>
 
 </div>

@@ -1,6 +1,16 @@
-angular.module('Invent').controller('UserController', function($scope, $state, UserFactory, $mdDialog) {
+angular.module('Invent').controller('UserController', function($scope, $state, UserFactory, $mdDialog, RoomFactory) {
 
     var myScope = $scope;
+
+    $scope.listRooms;
+
+    listRooms = function (){
+        RoomFactory.getRooms().then(function(result){
+            myScope.listRooms = result;
+        })
+    };
+
+    listRooms();
 
     $scope.tornarAdm = function(user){
         user.userKind = 'ADMIN';
@@ -19,6 +29,20 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
             console.log("Error");
         })
     };
+
+    $scope.createUser = function(user){
+      user.userKind = 'NORMAL'
+      UserFactory.addUser(user).then(function(result){
+        $state.go('list-users')
+        console.log("Sucesso");
+      }).catch(function(result){
+        console.log("Error");
+      })
+    };
+
+    $scope.goTo = function(state) {
+  		$state.go(state);
+  	};
 
     getUsers = function () {
 
@@ -46,4 +70,21 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
     getUsers();
 
 
+}).directive("compareTo", function(){
+  return {
+      require: "ngModel",
+      scope: {
+          otherModelValue: "=compareTo"
+      },
+      link: function(scope, element, attributes, ngModel) {
+
+          ngModel.$validators.compareTo = function(modelValue) {
+              return modelValue == scope.otherModelValue;
+          };
+
+          scope.$watch("otherModelValue", function() {
+              ngModel.$validate();
+          });
+      }
+  };
 });
