@@ -14,61 +14,68 @@
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
-          <div>
-            <div>
-              <md-input-container style="background-color=#90CAF9">
-                <label>Pesquisar por Patrimonio</label>
-                <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por P.Inst.</label>
-                <input type="text" ng-model="search.inst_Patrimony" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Descrição</label>
-                <input type="text" ng-model="search.description" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Usuário</label>
-                <input type="text" ng-model="search.machine_user" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Sala</label>
-                <input type="text" ng-model="search.room" flex-gt-sm="">
-              </md-input-container>
-            </div>
-            <div id='MACHINES'>
-              <div>
-                  <md-list>
+          <div id='MACHINES'>
+            <md-list-item class="form">
+              <p>
+                <md-input-container style="background-color=#90CAF9">
+                  <label>Pesquisar por Patrimonio</label>
+                  <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+                </md-input-container>
+              </p>
+              <p>
+                <md-input-container>
+                  <label>Pesquisar por P.Inst.</label>
+                  <input type="text" ng-model="search.inst_Patrimony" flex-gt-sm="">
+                </md-input-container>
+              </p>
+              <p>
+                <md-input-container>
+                  <label>Pesquisar por Descrição</label>
+                  <input type="text" ng-model="search.description" flex-gt-sm="">
+                </md-input-container>
+              </p>
+              <p>
+                <md-input-container>
+                  <label>Pesquisar por Usuário</label>
+                  <input type="text" ng-model="search.machine_user" flex-gt-sm="">
+                </md-input-container>
+              </p>
+              <p>
+                <md-input-container>
+                  <label>Pesquisar por Sala</label>
+                  <input type="text" ng-model="search.room" flex-gt-sm="">
+                </md-input-container>
+              </p>
+              <md-divider></md-divider>
+            </md-list-item>
+                  <md-list layout-padding="20dp">
                     <md-list-item class="small-font-medium topic">
-                        <p flex><strong> Patrimônio </strong></p>
-                        <p flex><strong> Patrimônio Ints. </strong></p>
-                        <p flex><strong> Nome </strong></p>
-                        <p flex><strong> Usuario </strong></p>
-                        <p flex><strong> Sala </strong></p>
-
+                        <p class="md-list-item-text" flex><strong>Patrimônio</strong></p>
+                        <p class="md-list-item-text" flex><strong>Patrimônio Ints.</strong></p>
+                        <p class="md-list-item-text" flex><strong>Nome</strong></p>
+                        <p class="md-list-item-text" flex><strong>Usuario</strong></p>
+                        <p class="md-list-item-text" flex><strong>Sala</strong></p>
+                        <p class="md-list-item-text"><strong></strong></p>
                     </md-list-item>
-                    <br>
+                    <md-divider></md-divider>
                     <md-list-item ng-repeat="machine in machines | filter:search:search.number_Patrimony
                                                                  | filter:search:search.inst_Patrimony
                                                                  | filter:search:search.description
                                                                  | filter:search:search.machine_user
                                                                  | filter:search:search.room">
-                        <p flex>{{machine.number_Patrimony}}</p>
-                        <p flex>{{machine.inst_Patrimony}} </p>
-                        <p flex>{{machine.description}} </p>
-                        <p flex>{{machine.machine_user}}</p>
-                        <p flex>{{machine.room}}</p>
-                        <a href="" ng-click="showMachine(machine._id)">ver</a>
+                        <p class="md-list-item-text" flex>{{machine.number_Patrimony}}</p>
+                        <p class="md-list-item-text" flex>{{machine.inst_Patrimony}} </p>
+                        <p class="md-list-item-text" flex>{{machine.description}} </p>
+                        <p class="md-list-item-text" flex>{{machine.machine_user}}</p>
+                        <p class="md-list-item-text" flex>{{machine.room}}</p>
+                        <p class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showMachine(machine._id)">Visualizar</md-button></p>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
                 </md-list>
-            </div>
                 <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
                     <md-icon>add</md-icon>
                 </md-button>
-            </div>
         </div>
     </div>
-
+  </div>
 </div>

@@ -17,7 +17,7 @@
     <div ng-cloak md-scroll-y class="form" flex layout="column">
         <div>
             <div id='USERS'>
-                <md-list>
+                <md-list layout-padding="20dp">
                   <md-list-item class="small-font-medium topic">
                     <p class="md-list-item-text" flex><strong> Nome </strong></p>
                     <p class="md-list-item-text" flex><strong> Email </strong></p>
@@ -25,15 +25,14 @@
                     <p class="md-list-item-text" flex><strong> Tipo de Usuário </strong></p>
                     <p class="md-list-item-text" flex><strong></strong></p>
                   </md-list-item>
-                  <br>
                   <md-divider></md-divider>
-                  <br>
                   <md-list-item class="small-font-medium topic" ng-repeat="user in users">
                     <p class="md-list-item-text" flex>{{user.name}}</p>
                     <p class="md-list-item-text" flex>{{user.email}}</p>
                     <p class="md-list-item-text" flex>{{user.room}}</p>
                     <p class="md-list-item-text" flex>{{user.userKind}}</p>
                     <p class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></p>
+                    <md-divider></md-divider>
                   </md-list-item>
                 </md-list>
             </div>
