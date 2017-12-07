@@ -14,7 +14,7 @@
 
 <div layout="row">
     <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column">
+    <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="20px">
       <div>
         <!--
         <div>
@@ -76,6 +76,7 @@
                   </p>
                   <md-divider></md-divider>
                 </md-list-item>
+                <!--
                 <md-list-item layout-padding="20dp" class="small-font-medium topic">
                     <p class="md-list-item-text" flex><strong>Patrimônio</strong></p>
                     <p class="md-list-item-text" flex><strong>Série</strong></p>
@@ -85,7 +86,6 @@
                     <p class="md-list-item-text"><strong></strong></p>
                 </md-list-item>
                 <md-divider></md-divider>
-                <!-- ng-click="showThing(thing._id)" -->
                 <md-list-item width="50%" layout-padding="20dp" class="md-list-item-text" ng-repeat="thing in listThings | filter:search:search.number_Patrimony
                                                                                               | filter:search:search.serie
                                                                                               | filter:search:search.number_Patrimony
@@ -100,6 +100,35 @@
                         <p class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showThing(thing._id)">Visualizar</md-button></p>
                         <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
+              -->
+              <table ng-cloak class="highlight margin bordered">
+                  <thead>
+                  <tr class="card-panel cyan">
+                      <td><strong><span class="white-text">Patrimônio</span></strong></td>
+                      <td><strong><span class="white-text">Série</span></strong></td>
+                      <td><strong><span class="white-text">Descrição</span></strong></td>
+                      <td><strong><span class="white-text">Marca/Modelo</span></strong></td>
+                      <td><strong><span class="white-text">Situação</span></strong></td>
+                      <td><strong><span class="white-text"></span></strong></td>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  <tr ng-repeat="thing in listThings | filter:search:search.number_Patrimony
+                                                     | filter:search:search.serie
+                                                     | filter:search:search.description
+                                                     | filter:search:search.brand_model
+                                                     | filter:search:search.situation">
+                      <td class="light">{{thing.number_Patrimony}}</td>
+                      <td class="light">{{thing.serie}}</td>
+                      <td class="light">{{thing.description}}</td>
+                      <td class="light">{{thing.brand_model}}</td>
+                      <td class="light">{{thing.situation}}</td>
+                      <td class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showThing(thing._id)">Visualizar</md-button></td>
+                  </tr>
+
+                  </tbody>
+              </table>
             </md-list>
             <div id="FAB-BUTTON">
                 <md-button ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
