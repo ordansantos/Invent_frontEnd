@@ -1,13 +1,13 @@
-angular.module('Invent').controller('SidenavController', function($scope, $state, $mdSidenav, $location, $window) {
+angular.module('Invent').controller('SidenavController', function($scope, $state, $mdSidenav, $location, $window, authentication) {
 
     var myScope = $scope;
 
     myScope.setRoute = function(route) {
         if (route == 'sair') {
-            $state.go('inicio');
-            sessionStorage.clear();
-        }
-        $state.go(route);
+            authentication.logout();
+            $state.go('login');
+        } else
+            $state.go(route);
     };
 
     myScope.toggleSidenav = function(menu) {
