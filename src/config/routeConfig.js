@@ -44,6 +44,13 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'src/components/user/create-user.html',
       controller: 'UserController'
     })
+
+      .state('create-edit-room', {
+          url: '/create-edit-room/:idRoom',
+          templateUrl: 'src/components/room/create-edit-room/create-edit-room.html',
+          controller: 'RoomController'
+      })
+
     .state('listing-rooms', {
         url: '/listing-rooms',
         templateUrl: 'src/components/room/list-rooms.html',
@@ -55,6 +62,8 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'src/components/room/list-objects-room/list-objects-room.html',
         controller: 'ListObjectsRoomController'
     })
+
+
 
 
 });
