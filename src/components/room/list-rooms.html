@@ -5,19 +5,19 @@
 </md-toolbar>
 <div layout="row">
     <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column"  layout-margin="20px">
+    <div ng-cloak md-scroll-y flex class="form" layout-margin="20px">
         <table ng-cloak class="highlight margin bordered">
             <thead>
             <tr class="card-panel cyan">
                 <td><strong><span class="white-text">Sala</span></strong></td>
-                <td><strong><span class="white-text"></span></strong></td>
+                <td align="right"><strong><span class="white-text"></span></strong></td>
             </tr>
             </thead>
 
             <tbody>
             <tr ng-repeat="room in listRooms">
                 <td class="light">{{room.name}}</td>
-                <td class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showRoom(room.name)">Visualizar</md-button></td>
+                <td align="right" class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showRoom(room.name)">Visualizar</md-button></td>
             </tr>
             </tbody>
         </table>
