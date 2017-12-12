@@ -12,11 +12,12 @@
 
 <div layout="row">
     <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column">
+    <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="20px">
         <div>
             <div >
                 <div>
                     <div >
+                      <!--
                         <md-list>
                             <md-list-item class="small-font-medium topic">
                                 <p class="md-list-item-text" flex><strong> Nº Patrimônio </strong></p>
@@ -33,6 +34,24 @@
                                 <p class="md-list-item-text"flex>{{object.description}} </p>
                             </md-list-item>
                         </md-list>
+                      -->
+                      <table ng-cloak class="highlight margin bordered">
+                          <thead>
+                          <tr class="card-panel cyan">
+                                <td><strong><span class="white-text">Nº Patrimônio</span></strong></td>
+                              <td><strong><span class="white-text">Nº Série</span></strong></td>
+                              <td><strong><span class="white-text">Descrição</span></strong></td>
+                          </tr>
+                          </thead>
+
+                          <tbody>
+                          <tr ng-repeat="object in listResult">
+                              <td class="light">{{object.number_Patrimony}}</td>
+                              <td class="light">{{object.serie}}</td>
+                              <td class="light">{{object.description}}</td>
+                          </tr>
+                          </tbody>
+                      </table>
                     </div>
                 </div>
             </div>
