@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ManuelNeto/Invent_frontEnd/issues"
   },
-  "homepage": "https://github.com/ManuelNeto/Invent_frontEnd#readme"
+  "homepage": "https://github.com/ManuelNeto/Invent_frontEnd#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
