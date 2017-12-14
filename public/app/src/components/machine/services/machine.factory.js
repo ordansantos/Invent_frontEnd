@@ -1,18 +1,18 @@
-angular.module('Invent').factory('ThingFactory', function ($window, $http, $state) {
+angular.module('Invent').factory('MachineFactory', function ($window, $http, $state) {
 
-    var myIp = 'http://localhost:8081';
+    var myIp = 'https://inventbackend.herokuapp.com';
 
     return {
 
         /**
-         * Get Things
-         * @returns {array} things
+         * Get machines
+         * @returns {array} machines
          */
 
-        getThings: function () {
+        getMachines: function () {
             var req = {
                 method: 'GET',
-                url: myIp + '/things',
+                url: myIp + '/machines',
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
@@ -23,16 +23,16 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             return $http(req).then(function (response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("Erro na request de things!", response);
+                console.log("Erro na request de machines!", response);
             });
         },
 
-        listThingsInRoom: function (room) {
+        listMachinesInRoom: function (room) {
 
             data = {room : room};
             var req = {
                 method: 'POST',
-                url: myIp + '/thingsInRoom',
+                url: myIp + '/machinesInRoom',
                 data: data,
                 headers: {
                     'Access-Control-Allow-Origin': '*'
@@ -44,14 +44,14 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             return $http(req).then(function (response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("Erro na request de things!", response);
+                console.log("Erro na request de machines!", response);
             });
         },
 
-        getThing: function (id) {
+        getMachine: function (id) {
             var req = {
                 method: 'GET',
-                url: myIp + '/thing/' + id,
+                url: myIp + '/machine/' + id,
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
@@ -62,17 +62,17 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             return $http(req).then(function (response) {
                 return response.data;
             }, function errorCallback(response) {
-                console.log("Erro na request de things!", response);
+                console.log("Erro na request de machine!", response);
             });
         },
 
-        editThing: function (thing) {
-            console.log(thing._id);
+        editMachine: function (machine) {
+            console.log(machine._id);
 
             var req = {
                 method: 'PUT',
-                url: myIp + '/thing/' + thing._id,
-                data: thing,
+                url: myIp + '/machine/' + machine._id,
+                data: machine,
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
@@ -87,13 +87,13 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
 
 
 
-        addThing: function (thing) {
-            console.log(thing);
+        addMachine: function (machine) {
+            console.log(machine);
 
             var req = {
                 method: 'POST',
-                url: myIp + '/thing',
-                data: thing,
+                url: myIp + '/machine',
+                data: machine,
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }

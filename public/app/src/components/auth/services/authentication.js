@@ -1,6 +1,6 @@
 (function () {
 
-    var myIp = 'http://localhost:8081';
+    var myIp = 'https://inventbackend.herokuapp.com';
 
     angular
         .module('Invent')
