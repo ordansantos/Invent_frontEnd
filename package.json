@@ -1,0 +1,24 @@
+{
+  "name": "invent_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./public/app/bower install"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuelNeto/Invent_frontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManuelNeto/Invent_frontEnd/issues"
+  },
+  "homepage": "https://github.com/ManuelNeto/Invent_frontEnd#readme", 
+  "dependencies": {
+     "bower": "0.6.x"
+  }
+}
