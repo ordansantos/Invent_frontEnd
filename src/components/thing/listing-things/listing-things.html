@@ -9,67 +9,76 @@
     <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="20px">
       <div>
         <div id='THINGS'>
-                <md-list-item class="form">
-                  <p>
-                    <md-input-container style="background-color=#90CAF9">
-                      <label>Pesquisar por Patrimonio</label>
-                      <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
-                    </md-input-container>
-                  </p>
-                  <p>
-                    <md-input-container>
-                      <label>Pesquisar por No. Série</label>
-                      <input type="text" ng-model="search.serie" flex-gt-sm="">
-                    </md-input-container>
-                  </p>
-                  <p>
-                    <md-input-container>
-                      <label>Pesquisar por Descrição</label>
-                      <input type="text" ng-model="search.description" flex-gt-sm="">
-                    </md-input-container>
-                  </p>
-                  <p>
-                    <md-input-container>
-                      <label>Pesquisar por Marca/Modelo</label>
-                      <input type="text" ng-model="search.brand_model" flex-gt-sm="">
-                    </md-input-container>
-                  </p>
-                  <p>
-                    <md-input-container>
-                      <label>Pesquisar por Situação</label>
-                      <input type="text" ng-model="search.situation" flex-gt-sm="">
-                    </md-input-container>
-                  </p>
-                  <md-divider></md-divider>
-                </md-list-item>
-              <table ng-cloak class="highlight margin bordered">
-                  <thead>
-                  <tr class="card-panel cyan">
-                      <td><strong><span class="white-text">Patrimônio</span></strong></td>
-                      <td><strong><span class="white-text">Série</span></strong></td>
-                      <td><strong><span class="white-text">Descrição</span></strong></td>
-                      <td><strong><span class="white-text">Marca/Modelo</span></strong></td>
-                      <td><strong><span class="white-text">Situação</span></strong></td>
-                      <td><strong><span class="white-text"></span></strong></td>
-                  </tr>
+            <md-card>
+              <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                </div>
+              </md-toolbar>
+
+              <md-table-container>
+                <table md-table>
+                  <thead md-head>
+                    <tr md-row>
+                      <th md-column>
+                        <md-input-container style="background-color=#90CAF9">
+                        <label>Pesquisar por Patrimonio</label>
+                        <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+                        </md-input-container>
+                      </th>
+                      <th md-column>
+                        <md-input-container>
+                        <label>Pesquisar por No. Série</label>
+                        <input type="text" ng-model="search.serie" flex-gt-sm="">
+                        </md-input-container>
+                      </th>
+                      <th md-column>
+                        <md-input-container>
+                        <label>Pesquisar por Descrição</label>
+                        <input type="text" ng-model="search.description" flex-gt-sm="">
+                        </md-input-container>
+                      </th>
+                      <th md-column>
+                        <md-input-container>
+                        <label>Pesquisar por Marca/Modelo</label>
+                        <input type="text" ng-model="search.brand_model" flex-gt-sm="">
+                        </md-input-container>
+                      </th>
+                      <th md-column>
+                        <md-input-container>
+                        <label>Pesquisar por Situação</label>
+                        <input type="text" ng-model="search.situation" flex-gt-sm="">
+                        </md-input-container>
+                      </th>
+                    </tr>
                   </thead>
-
-                  <tbody>
-                  <tr ng-repeat="thing in listThings | filter:search:search.number_Patrimony
-                                                     | filter:search:search.serie
-                                                     | filter:search:search.description
-                                                     | filter:search:search.brand_model
-                                                     | filter:search:search.situation">
-                      <td class="light">{{thing.number_Patrimony}}</td>
-                      <td class="light">{{thing.serie}}</td>
-                      <td class="light"><textarea>{{thing.description}}</textarea></td>
-                      <td class="light">{{thing.brand_model}}</td>
-                      <td class="light">{{thing.situation}}</td>
-                      <td class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showThing(thing._id)">Visualizar</md-button></td>
-                  </tr>
-
+                  <thead ng-if="!options.decapitate" md-head md-order="number_Patrimony">
+                    <tr md-row>
+                      <th md-column md-order-by="number_Patrimony"><span>Patrimônio</span></th>
+                      <th md-column md-order-by="serie"><span>Série</span></th>
+                      <th md-column><span>Descrição</span></th>
+                      <th md-column md-order-by="brand_model"><span>Marca</span></th>
+                      <th md-column md-order-by="situation"><span>Situação</span></th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row onclick="showThing(thing._id)" ng-repeat="thing in listThings | filter:search:search.number_Patrimony
+                                                       | filter:search:search.serie
+                                                       | filter:search:search.description
+                                                       | filter:search:search.brand_model
+                                                       | filter:search:search.situation | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                      <td md-cell>{{thing.number_Patrimony}}</td>
+                      <td md-cell>{{thing.serie}}</td>
+                      <td md-cell>{{thing.description}}</td>
+                      <td md-cell>{{thing.brand_model}}</td>
+                      <td md-cell>{{thing.situation}}</td>
+                      </td>
+                    </tr>
                   </tbody>
-              </table>
+                </table>
+              </md-table-container>
+
+              <md-table-pagination md-limit="query.limit" md-limit-options="[10, 15]" md-page="query.page" md-total="{{thingsCount}}" md-page-select md-on-paginate="listThings()"></md-table-pagination>
+            </md-card>
             <div id="FAB-BUTTON">
                 <md-button ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
                     <md-icon>add</md-icon>

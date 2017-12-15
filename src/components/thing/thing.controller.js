@@ -6,7 +6,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   $scope.editable = false;
 
   var idThing = $stateParams.idThing;
-
+	var thingsCount;
 	$scope.listRooms;
 
 
@@ -31,6 +31,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	listThings = function (){
 		ThingFactory.getThings().then(function(result){
 			myScope.listThings = result;
+			myScope.thingsCount = result.length;
+			console.log(result);
 		})
 	};
 
@@ -42,6 +44,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   };
 
 
+
+
 	myScope.showThing = function(id){
 		console.log(id);
 		$state.go('create-edit-thing', { idThing : id});
@@ -51,6 +55,12 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	myScope.goTo = function(state) {
 		$state.go(state);
 	};
+
+	myScope.query = {
+    order: 'number_Patrimony',
+    limit: 10,
+    page: 1
+  };
 
 	myScope.addThing = function(thing){
 		ThingFactory.addThing(thing).then(function(result){
