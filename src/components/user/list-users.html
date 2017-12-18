@@ -17,28 +17,32 @@
     <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="30px">
         <div>
             <div id='USERS'>
-              <table ng-cloak class="highlight margin bordered">
-                  <thead>
-                  <tr class="card-panel cyan">
-                      <td><strong><span class="white-text">Nome</span></strong></td>
-                      <td><strong><span class="white-text">Email</span></strong></td>
-                      <td><strong><span class="white-text">Sala</span></strong></td>
-                      <td><strong><span class="white-text">Tipo de usuário</span></strong></td>
-                      <td><strong><span class="white-text"></span></strong></td>
-                  </tr>
-                  </thead>
-
-                  <tbody>
-                  <tr ng-repeat="user in users">
-                      <td class="light">{{user.name}}</td>
-                      <td class="light">{{user.email}}</td>
-                      <td class="light">{{user.room}}</td>
-                      <td class="light">{{user.userKind}}</td>
-                      <td><md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></td>
-                  </tr>
-
-                  </tbody>
-              </table>
+              <md-card>
+                <md-table-container>
+                  <table md-table>
+                    <thead ng-if="!options.decapitate" md-head md-order="query.order">
+                      <tr md-row>
+                        <th md-column md-order-by="name"><span>Nome</span></th>
+                        <th md-column md-order-by="email"><span>Email</span></th>
+                        <th md-column md-order-by="room"><span>Sala</span></th>
+                        <th md-column md-order-by="userKind"><span>Tipo de Usuário</span></th>
+                        <th md-column></th>
+                      </tr>
+                    </thead>
+                    <tbody md-body>
+                      <tr md-row ng-repeat="user in users | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>{{user.name}}</td>
+                        <td md-cell>{{user.email}}</td>
+                        <td md-cell>{{user.room}}</td>
+                        <td md-cell>{{user.userKind}}</td>
+                        <td md-cell><md-button class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></td>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </md-table-container>
+                <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{usersCount}}" md-page-select md-on-paginate="getUsers()"></md-table-pagination>
+              </md-card>
             </div>
         </div>
         <md-button ng-click="goTo('create-user')" id="criarNovoUsuario" class="md-fab md-fab-bottom-right red lighten-2">

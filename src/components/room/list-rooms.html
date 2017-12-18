@@ -6,6 +6,27 @@
 <div layout="row">
     <sidenav></sidenav>
     <div ng-cloak md-scroll-y flex class="form" layout-margin="20px">
+      <md-card>
+        <md-table-container>
+          <table md-table>
+            <thead ng-if="!options.decapitate" md-head md-order="query.order">
+              <tr md-row>
+                <th md-column md-numeric md-order-by="name"><span>Sala</span></th>
+                <th md-column md-numeric></th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row ng-repeat="room in listRooms | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                <td md-cell md-numeric>{{room.name}}</td>
+                <td md-cell md-numeric><md-button class="md-raised md-primary" ng-click="showRoom(room.name)">Visualizar</md-button></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{roomsCount}}" md-page-select md-on-paginate="listRooms()"></md-table-pagination>
+      </md-card>
+      <!--
         <table ng-cloak class="highlight margin bordered">
             <thead>
             <tr class="card-panel cyan">
@@ -21,6 +42,8 @@
             </tr>
             </tbody>
         </table>
+      -->
+
         <md-button ng-click="goTo('create-edit-room')" id="criarNovaSala" class="md-fab md-fab-bottom-right red lighten-2">
             <md-icon>add</md-icon>
         </md-button>

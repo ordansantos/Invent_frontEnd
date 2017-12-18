@@ -1,13 +1,19 @@
 angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams) {
 
     var myScope = $scope;
-
+    var machinesCount;
+    $scope.selected = [];
     $scope.machine;
     $scope.machines;
     $scope.editable = false;
     var today = new Date();
     $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
+    myScope.query = {
+      order: 'number_Patrimony',
+      limit: 10,
+      page: 1
+    };
 
     if($scope.machine != undefined){
         console.log($scope.machine);
@@ -42,6 +48,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     getMachines = function () {
 
         MachineFactory.getMachines().then(function (result) {
+            myScope.machinesCount = result.length;
             myScope.machines = result.reverse();
         });
     };

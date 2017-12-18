@@ -1,7 +1,7 @@
 angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams) {
 
 	var myScope = $scope;
-
+	$scope.selected = [];
 	$scope.thing;
   $scope.editable = false;
 
@@ -19,9 +19,9 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	listRooms();
 
   myScope.getThing = function (id) {
-      console.log(id);
+      console.log("getThing id:" + id);
       ThingFactory.getThing(id).then(function(result){
-          console.log(result);
+          console.log("resultado " + result._id);
           $scope.thing = result;
       }).catch(function(result){
           console.log("Error");
@@ -46,9 +46,9 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 
 
 
-	myScope.showThing = function(id){
-		console.log(id);
-		$state.go('create-edit-thing', { idThing : id});
+	myScope.showThing = function(item){
+		console.log(item._id);
+		$state.go('create-edit-thing', { idThing : item._id});
 	};
 
 	//go to any state

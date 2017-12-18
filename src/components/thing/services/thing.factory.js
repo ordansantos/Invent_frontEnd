@@ -49,6 +49,7 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
         },
 
         getThing: function (id) {
+          console.log("id " + id)
             var req = {
                 method: 'GET',
                 url: myIp + '/thing/' + id,
@@ -60,6 +61,7 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
 
 
             return $http(req).then(function (response) {
+                console.log(response.data);
                 return response.data;
             }, function errorCallback(response) {
                 console.log("Erro na request de things!", response);

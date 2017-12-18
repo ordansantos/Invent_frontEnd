@@ -3,7 +3,7 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
     var myScope = $scope;
 
     myScope.listRooms;
-
+    myScope.roomsCount;
     var idRoom = $stateParams.idRoom;
 
     myScope.getRoom = function (id) {
@@ -21,9 +21,15 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
         myScope.getRoom(idRoom);
     };
 
+    myScope.query = {
+      order: 'number_Patrimony',
+      limit: 10,
+      page: 1
+    };
 
     listRooms = function (){
         RoomFactory.getRooms().then(function(result){
+            myScope.roomsCount = result.length;
             myScope.listRooms = result;
         })
     };

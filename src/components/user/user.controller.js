@@ -1,7 +1,7 @@
 angular.module('Invent').controller('UserController', function($scope, $state, UserFactory, $mdDialog, RoomFactory) {
 
     var myScope = $scope;
-
+    var usersCount;
     $scope.listRooms;
 
     listRooms = function (){
@@ -47,8 +47,15 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
     getUsers = function () {
 
         UserFactory.getUsers().then(function (result) {
+            myScope.usersCount = result.length;
             myScope.users = result.reverse();
         });
+    };
+
+    myScope.query = {
+      order: 'name',
+      limit: 10,
+      page: 1
     };
 
     $scope.setUserKind = function(ev, user) {
