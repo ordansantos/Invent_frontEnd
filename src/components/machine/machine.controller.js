@@ -9,7 +9,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     var today = new Date();
     $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
-    myScope.query = {
+    $scope.query = {
       order: 'number_Patrimony',
       limit: 10,
       page: 1

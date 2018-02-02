@@ -1,7 +1,6 @@
-angular.module('Invent').controller('RoomController', function($scope, $state, RoomFactory, $stateParams) {
+angular.module('Invent').controller('RoomController', function($scope, $state, RoomFactory, $stateParams, MachineFactory, ThingFactory) {
 
     var myScope = $scope;
-
     myScope.listRooms;
     myScope.roomsCount;
     var idRoom = $stateParams.idRoom;
@@ -26,6 +25,7 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
       limit: 10,
       page: 1
     };
+
 
     listRooms = function (){
         RoomFactory.getRooms().then(function(result){

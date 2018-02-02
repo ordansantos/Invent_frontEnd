@@ -5,6 +5,12 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
     myScope.listMachinesInRoom;
     myScope.listThingsInRoom;
 
+    myScope.query = {
+      order: 'number_Patrimony',
+      limit: 10,
+      page: 1
+    };
+
     myScope.listResult;
 
     var room = $stateParams.room;
