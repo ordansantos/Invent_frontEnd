@@ -63,9 +63,9 @@ angular.module('Invent').controller('MachineController', function($scope, $state
         myScope.getMachine(idMachine);
     };
 
-    myScope.showMachine = function(id){
-        console.log(id);
-       $state.go('create-edit-machine', { idMachine : id});
+    myScope.showMachine = function(machine){
+        console.log(machine);
+       $state.go('create-edit-machine', { idMachine : machine._id});
     };
 
     //go to any state

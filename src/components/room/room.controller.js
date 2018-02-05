@@ -26,12 +26,25 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
       page: 1
     };
 
+    objectsCount = function (room) {
+      MachineFactory.listMachinesInRoom(room.name).then(function(result){
+          room.things = result;
+      });
+      ThingFactory.listThingsInRoom(room.name).then(function(result){
+          room.things = room.things.concat(result);
+      })
+    }
+
 
     listRooms = function (){
         RoomFactory.getRooms().then(function(result){
             myScope.roomsCount = result.length;
             myScope.listRooms = result;
-        })
+        }).then(function () {
+          myScope.listRooms.forEach(function (entry) {
+            objectsCount(entry);
+          })
+        });
     };
 
     myScope.showRoom = function(room_name){
@@ -64,10 +77,7 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
     };
 
 
-
-
     listRooms();
-
 
 
 });
