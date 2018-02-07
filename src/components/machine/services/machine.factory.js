@@ -66,6 +66,24 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
             });
         },
 
+        machineReport: function () {
+            console.log('report machine service');
+            var req = {
+                method: 'GET',
+                url: myIp + '/machines/attachments',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+
+            };
+
+            return $http(req).then(function (response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("Erro na request de machines!", response);
+            });
+        },
+
         editMachine: function (machine) {
             console.log(machine._id);
 
