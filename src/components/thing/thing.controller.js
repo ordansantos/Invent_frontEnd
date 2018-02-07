@@ -22,7 +22,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
       console.log("getThing id:" + id);
       ThingFactory.getThing(id).then(function(result){
           console.log("resultado " + result._id);
-          $scope.thing = result;
+          $scope.thing = result[0];
       }).catch(function(result){
           console.log("Error");
       })
