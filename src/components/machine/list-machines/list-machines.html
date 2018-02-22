@@ -72,6 +72,9 @@
         </md-table-container>
         <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{machinesCount}}" md-page-select md-on-paginate="getMachines()"></md-table-pagination>
       </md-card>
+      <md-button ng-click="machineReport()" id="relatorioMaquinas" class="md-fab md-fab-bottom-left blue lighten-2">
+        <md-icon>print</md-icon>
+      </md-button>
       <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
         <md-icon>add</md-icon>
       </md-button>

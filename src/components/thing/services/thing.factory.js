@@ -68,6 +68,24 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             });
         },
 
+        thingReport: function () {
+            console.log('report thing service');
+            var req = {
+                method: 'GET',
+                url: myIp + '/things/attachments',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+
+            };
+
+            return $http(req).then(function (response) {
+                return response.data;
+            }, function errorCallback(response) {
+                console.log("Erro na request de things!", response);
+            });
+        },
+
         editThing: function (thing) {
             console.log(thing._id);
 

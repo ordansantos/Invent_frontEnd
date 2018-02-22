@@ -72,6 +72,9 @@
       </md-table-container>
       <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{thingsCount}}" md-page-select md-on-paginate="listThings()"></md-table-pagination>
     </md-card>
+    <md-button ng-click="thingReport()" id="relatorioObjetos" class="md-fab md-fab-bottom-left blue lighten-2">
+      <md-icon>print</md-icon>
+    </md-button>
     <div id="FAB-BUTTON">
       <md-button ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
         <md-icon>add</md-icon>

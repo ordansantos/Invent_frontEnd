@@ -78,6 +78,16 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	      }).catch(function(result){
 	          console.log("Error");
 	      })
-	  };
+	};
+
+	myScope.thingReport = function () {
+		console.log('report thing controller');
+		ThingFactory.thingReport().then(function(result){
+			$state.go('listing-things');
+			console.log("Sucesso");
+		}).catch(function(result){
+			console.log("Error");
+		})
+	}
 
 });
