@@ -1,9 +1,10 @@
-angular.module('Invent').controller('MyDataController', function($scope, $state, $stateParams, UserFactory) {
+angular.module('Invent').controller('MyDataController', function($scope, $state, $stateParams, UserFactory, authentication) {
 
 	var myScope = $scope;
 
 	$scope.mydata;
     $scope.editable = false;
+    $scope.currentUser = authentication.currentUser();
 
     var idMyData = $stateParams.idMyData;
 

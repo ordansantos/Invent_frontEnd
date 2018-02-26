@@ -19,7 +19,7 @@
                         <md-input-container class="md-block" flex-gt-sm="">
 
                             <label>Nome</label>
-                            <input type="text" name="name" ng-model="mydata.name" ng-minlength="3" ng-maxlength="30" required/>
+                            <input type="text" name="name" ng-model="currentUser.name" ng-minlength="3" ng-maxlength="30" required/>
                             <div ng-messages="mydataForm.name.$error" ng-messages-multiple ng-show="mydataForm.name.$touched && mydataForm.name.$invalid">
                                 <div ng-message="required">
                                     Você esqueceu de colocar seu nome, ex: Carlos
@@ -37,7 +37,7 @@
                         <md-input-container class="md-block" flex-gt-sm="">
 
                             <label>Email</label>
-                            <input type="email" name="email" ng-model="mydata.email"  ng-minlength="5"  ng-maxlength="30" required/>
+                            <input type="email" name="email" ng-model="currentUser.email"  ng-minlength="5"  ng-maxlength="30" required/>
                             <div ng-messages="mydataForm.email.$error" ng-messages-multiple ng-show="mydataForm.email.$touched && mydataForm.email.$invalid">
                                 <div ng-message="required">
                                     Você esqueceu de colocar seu email
