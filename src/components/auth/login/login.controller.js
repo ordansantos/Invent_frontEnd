@@ -20,9 +20,4 @@ angular.module('Invent').controller('loginCtrl', function($scope, $location, aut
             });
     };
 
-    myScope.goRegister = function(){
-        $state.go('register');
-
-    }
-
 });

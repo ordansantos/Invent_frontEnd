@@ -85,13 +85,13 @@ angular.module('Invent').run(function($rootScope, $location, authentication, $ht
         $http.defaults.headers.common.Authorization = 'Bearer '+ authentication.getToken();
 
 
-        if ($location.path() !== '/login' && $location.path() !== '/register') {
+        if ($location.path() !== '/login') {
             if (!authentication.isLoggedIn()){
                 $timeout(function(){$state.go('login');});
             }
         }
 
-        if ($location.path() === '/login' || $location.path() === '/register') {
+        if ($location.path() === '/login') {
             if (authentication.isLoggedIn()){
                 $timeout(function(){$state.go('listing-things');});
             }
