@@ -4,6 +4,7 @@
     <title>Invent</title>
     <meta charset="utf-8">
 
+
     <!-- Materializa -->
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -68,6 +69,11 @@
     <!-- Angular Material Library -->
     <script src="bower_components/angular-material/angular-material.js"></script>
 
+    <!-- style sheet -->
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+    <!-- module -->
+    <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+
     <!--Angular app-->
     <script src="src/app.js"></script>
     <script src="src/app.controller.js"></script>
@@ -83,6 +89,7 @@
     <script src="bower_components/ng-responsive-calendar/dist/js/calendar-tpls.js"></script>
 
     <!-- Controllers -->
+    <script src="src/app.controller.js"></script>
     <script src="src/components/thing/thing.controller.js"></script>
     <script src="src/components/room/room.controller.js"></script>
     <script src="src/components/machine/machine.controller.js"></script>
@@ -90,6 +97,8 @@
     <script src="src/components/user/user.controller.js"></script>
     <script src ="src/components/mydata/mydata.controller.js"></script>
     <script src="src/components/room/list-objects-room/list-objects-room.controller.js"></script>
+    <script src="src/components/auth/register/register.controller.js"></script>
+    <script src="src/components/auth/login/login.controller.js"></script>
 
     <!-- Factorys -->
     <script src="src/components/room/services/room.factory.js"></script>
@@ -100,6 +109,9 @@
 
     <!-- Directives -->
     <script src="src/components/sidenav/sidenav.directive.js"></script>
+
+    <!-- Services -->
+    <script src="src/components/auth/services/authentication.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="src/components/sidenav/sidenav.css">

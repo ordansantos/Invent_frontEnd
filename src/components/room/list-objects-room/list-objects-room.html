@@ -1,6 +1,6 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
-
+      <img width="200px" src="src/components/images/customLogo.png" alt="">
         <!-- <strong>
             <i class="material-icons left">
                 assignment
@@ -12,31 +12,46 @@
 
 <div layout="row">
     <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column">
+    <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="20px">
         <div>
-            <div >
-                <div>
-                    <div >
-                        <md-list>
-                            <md-list-item class="small-font-medium topic">
-                                <p class="md-list-item-text" flex><strong> Nº Patrimônio </strong></p>
-                                <p class="md-list-item-text" flex><strong> Nº Série </strong></p>
-                                <p class="md-list-item-text" flex><strong> Descrição </strong></p>
+          <!--table ng-cloak class="highlight margin bordered">
+              <thead>
+              <tr class="card-panel cyan">
+                    <td><strong><span class="white-text">Nº Patrimônio</span></strong></td>
+                  <td><strong><span class="white-text">Nº Série</span></strong></td>
+                  <td><strong><span class="white-text">Descrição</span></strong></td>
+              </tr>
+              </thead>
 
-                            </md-list-item>
-                            <br>
-                            <md-divider></md-divider>
-                            <br>
-                            <md-list-item class="small-font-medium topic" ng-repeat="object in listResult" ng-click="showThing(thing._id)">
-                                <p class="md-list-item-text" flex>{{object.number_Patrimony}}</p>
-                                <p class="md-list-item-text"flex>{{object.serie}} </p>
-                                <p class="md-list-item-text"flex>{{object.description}} </p>
-                            </md-list-item>
-                        </md-list>
-                    </div>
-                </div>
-            </div>
+              <tbody>
+              <tr ng-repeat="object in listResult">
+                  <td class="light">{{object.number_Patrimony}}</td>
+                  <td class="light">{{object.serie}}</td>
+                  <td class="light">{{object.description}}</td>
+              </tr>
+              </tbody>
+          </table-->
+          <md-card>
+            <md-table-container>
+              <table md-table ng-model="selected" md-row-select=true>
+                <thead ng-if="!options.decapitate" md-head md-order="query.order">
+                  <tr md-row>
+                    <th md-column md-order-by="number_Patrimony"><span>Patrimônio</span></th>
+                    <th md-column md-order-by="inst_Patrimony"><span>Série</span></th>
+                    <th md-column><span>Descrição</span></th>
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr md-row md-select="object" md-auto-select=true ng-repeat="object in listResult |  orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                    <td md-cell>{{object.number_Patrimony}}</td>
+                    <td md-cell>{{object.serie}}</td>
+                    <td md-cell><textarea style="border: none">{{object.description}}</textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{machinesCount}}" md-page-select md-on-paginate="getMachines()"></md-table-pagination>
+          </md-card>
         </div>
-
     </div>
 </div>

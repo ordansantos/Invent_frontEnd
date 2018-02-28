@@ -1,13 +1,19 @@
 angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams) {
 
     var myScope = $scope;
-
+    var machinesCount;
+    $scope.selected = [];
     $scope.machine;
     $scope.machines;
     $scope.editable = false;
     var today = new Date();
     $scope.maxDate = new Date(today.getFullYear(),today.getMonth() , today.getDate());
 
+    $scope.query = {
+      order: 'number_Patrimony',
+      limit: 10,
+      page: 1
+    };
 
     if($scope.machine != undefined){
         console.log($scope.machine);
@@ -32,7 +38,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
         console.log(id);
         MachineFactory.getMachine(id).then(function(result){
             console.log(result);
-            $scope.machine = result;
+            $scope.machine = result[0];
         }).catch(function(result){
             console.log("Error");
         })
@@ -42,6 +48,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     getMachines = function () {
 
         MachineFactory.getMachines().then(function (result) {
+            myScope.machinesCount = result.length;
             myScope.machines = result.reverse();
         });
     };
@@ -56,9 +63,9 @@ angular.module('Invent').controller('MachineController', function($scope, $state
         myScope.getMachine(idMachine);
     };
 
-    myScope.showMachine = function(id){
-        console.log(id);
-       $state.go('create-edit-machine', { idMachine : id});
+    myScope.showMachine = function(machine){
+        console.log(machine);
+       $state.go('create-edit-machine', { idMachine : machine._id});
     };
 
     //go to any state
@@ -77,6 +84,16 @@ angular.module('Invent').controller('MachineController', function($scope, $state
 
     myScope.editMachine = function (machine) {
         MachineFactory.editMachine(machine).then(function(result){
+            $state.go('list-machines');
+            console.log("Sucesso");
+        }).catch(function(result){
+            console.log("Error");
+        })
+    };
+
+    myScope.machineReport = function () {
+        console.log('report machine controller');
+        MachineFactory.machineReport().then(function(result){
             $state.go('list-machines');
             console.log("Sucesso");
         }).catch(function(result){

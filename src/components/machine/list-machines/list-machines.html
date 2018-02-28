@@ -1,71 +1,83 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
-
-        <!-- <strong>
-            <i class="material-icons left">
-                assignment
-            </i> InLab
-        </strong> -->
-
+      <img width="200px" src="src/components/images/customLogo.png" alt="">
     </div>
 </md-toolbar>
 
 <div layout="row">
-    <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column">
-        <div>
-          <div>
-            <div>
-              <md-input-container style="background-color=#90CAF9">
-                <label>Pesquisar por Patrimonio</label>
-                <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por P.Inst.</label>
-                <input type="text" ng-model="search.inst_Patrimony" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Descrição</label>
-                <input type="text" ng-model="search.description" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Usuário</label>
-                <input type="text" ng-model="search.machine_user" flex-gt-sm="">
-              </md-input-container>
-              <md-input-container>
-                <label>Pesquisar por Sala</label>
-                <input type="text" ng-model="search.room" flex-gt-sm="">
-              </md-input-container>
-            </div>
-            <div id='MACHINES'>
-              <div>
-                  <md-list>
-                    <md-list-item class="small-font-medium topic">
-                        <p flex="33" flex><strong> Patrimônio </strong></p>
-                        <p flex="33" flex><strong> Patrimônio Ints. </strong></p>
-                        <p flex="33" flex><strong> Nome </strong></p>
-                        <p flex="33" flex><strong> Usuario </strong></p>
-                        <p flex="33" flex><strong> Sala </strong></p>
-
-                    </md-list-item>
-                    <md-list-item ng-click="showMachine(machine._id)" ng-repeat="machine in machines | filter:search:search.number_Patrimony
-                                                                                                     | filter:search:search.inst_Patrimony
-                                                                                                     | filter:search:search.description
-                                                                                                     | filter:search:search.machine_user
-                                                                                                     | filter:search:search.room">
-                        <p style=flex="20">{{machine.number_Patrimony}}</p>
-                        <p style=flex="15">{{machine.inst_Patrimony}} </p>
-                        <p style=flex="25">{{machine.description}} </p>
-                        <p style="margin=center">{{machine.machine_user}}</p>
-                        <p style=flex="15">{{machine.room}}</p>
-                    </md-list-item>
-                </md-list>
-            </div>
-                <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
-        </div>
+  <sidenav></sidenav>
+  <div ng-cloak md-scroll-y class="form" flex layout="column" layout-margin="20px">
+    <div id='MACHINES'>
+      <md-card>
+        <md-table-container>
+          <table md-table ng-model="selected" md-row-select=true>
+            <thead md-head>
+              <tr md-row>
+                <th md-column>
+                  <md-input-container style="background-color=#90CAF9">
+                  <label>Pesquisar por Patrimônio</label>
+                  <input type="text" ng-model="search.number_Patrimony" flex-gt-sm="">
+                  </md-input-container>
+                </th>
+                <th md-column>
+                  <md-input-container>
+                    <label>Pesquisar por P.Inst.</label>
+                    <input type="text" ng-model="search.inst_Patrimony" flex-gt-sm="">
+                  </md-input-container>
+                </th>
+                <th md-column>
+                  <md-input-container>
+                  <label>Pesquisar por Descrição</label>
+                  <input type="text" ng-model="search.description" flex-gt-sm="">
+                  </md-input-container>
+                </th>
+                <th md-column>
+                  <md-input-container>
+                    <label>Pesquisar por Usuário</label>
+                    <input type="text" ng-model="search.machine_user" flex-gt-sm="">
+                  </md-input-container>
+                </th>
+                <th md-column>
+                  <md-input-container>
+                    <label>Pesquisar por Sala</label>
+                    <input type="text" ng-model="search.room" flex-gt-sm="">
+                  </md-input-container>
+                </th>
+              </tr>
+            </thead>
+            <thead ng-if="!options.decapitate" md-head md-order="query.order">
+              <tr md-row>
+                <th md-column md-order-by="number_Patrimony"><span>Patrimônio</span></th>
+                <th md-column md-order-by="inst_Patrimony"><span>Patrimônio Inst.</span></th>
+                <th md-column><span>Descrição</span></th>
+                <th md-column md-order-by="machine_user"><span>Usuário</span></th>
+                <th md-column md-order-by="room"><span>Sala</span></th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row md-select="machine" md-auto-select=true md-on-select="showMachine" ng-repeat="machine in machines | filter:search:search.number_Patrimony
+                                                 | filter:search:search.inst_Patrimony
+                                                 | filter:search:search.description
+                                                 | filter:search:search.machine_user
+                                                 | filter:search:search.room | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                <td md-cell>{{machine.number_Patrimony}}</td>
+                <td md-cell>{{machine.inst_Patrimony}}</td>
+                <td md-cell><textarea style="border: none">{{machine.description}}</textarea></td>
+                <td md-cell>{{machine.machine_user}}</td>
+                <td md-cell>{{machine.room}}</td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{machinesCount}}" md-page-select md-on-paginate="getMachines()"></md-table-pagination>
+      </md-card>
+      <md-button ng-click="machineReport()" id="relatorioMaquinas" class="md-fab md-fab-bottom-left blue lighten-2">
+        <md-icon>print</md-icon>
+      </md-button>
+      <md-button ng-click="goTo('create-edit-machine')" id="criarNovaMaquina" class="md-fab md-fab-bottom-right red lighten-2">
+        <md-icon>add</md-icon>
+      </md-button>
     </div>
-
+  </div>
 </div>

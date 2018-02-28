@@ -1,35 +1,67 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
-
-        <!-- <strong>
-            <i class="material-icons left">
-                assignment
-            </i> InLab
-        </strong> -->
-
+      <img width="200px" src="src/components/images/customLogo.png" alt="">
     </div>
 </md-toolbar>
 <div layout="row">
     <sidenav></sidenav>
-    <div ng-cloak md-scroll-y class="form" flex layout="column">
-        <div>
-            <div>
-                <div>
-                    <div>
-                        <md-list>
-                            <md-list-item class="small-font-medium topic">
-                                <p class="md-list-item-text" flex><strong> Salas </strong></p>
-                            </md-list-item>
-                            <br>
-                            <md-divider></md-divider>
-                            <br>
-                            <md-list-item class="small-font-medium topic" ng-repeat="room in listRooms" ng-click="showRoom(room.name)">
-                                <p class="md-list-item-text" flex>{{room.name}}</p>
-                            </md-list-item>
-                        </md-list>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div ng-cloak md-scroll-y flex class="form" layout-margin="20px">
+      <!--md-card>
+        <md-table-container>
+          <table md-table>
+            <thead ng-if="!options.decapitate" md-head md-order="query.order">
+              <tr md-row>
+                <th md-column md-numeric md-order-by="name"><span>Sala</span></th>
+                <th md-column md-numeric></th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row ng-repeat="room in listRooms | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                <td md-cell md-numeric>{{room.name}}</td>
+                <td md-cell md-numeric><md-button class="md-raised md-primary" ng-click="showRoom(room.name)">Visualizar</md-button></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{roomsCount}}" md-page-select md-on-paginate="listRooms()"></md-table-pagination>
+      </md-card>
+
+        <table ng-cloak class="highlight margin bordered">
+            <thead>
+            <tr class="card-panel cyan">
+                <td><strong><span class="white-text">Sala</span></strong></td>
+                <td align="right"><strong><span class="white-text"></span></strong></td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="room in listRooms">
+                <td class="light">{{room.name}}</td>
+                <td align="right" class="md-list-item-text" flex><md-button class="md-raised md-primary" ng-click="showRoom(room.name)">Visualizar</md-button></td>
+            </tr>
+            </tbody>
+        </table>
+      -->
+      <md-grid-list md-cols-gt-sm="4" md-row-height="100px">
+        <md-grid-tile ng-repeat="room in listRooms | orderBy">
+          <div layout-padding layout="row" layout-fill>
+            <md-card layout-fill class="card" ng-click="showRoom(room.name)" flex=100>
+              <md-card-tittle>
+                <md-card-title-text>
+                  <span class="md-title"><strong>{{room.name}}</strong></span><br>
+                  {{room.things.length}} objeto(s) na sala.<br>
+                  <i>Clique para visualizar detalhes.</i>
+                </md-card-title-text>
+              </md-card-tittle>
+            </md-card>
+          </div>
+        </md-grid-tile>
+      </md-grid-list>
+
+        <md-button ng-click="goTo('create-edit-room')" id="criarNovaSala" class="md-fab md-fab-bottom-right red lighten-2">
+            <md-icon>add</md-icon>
+        </md-button>
 
     </div>
+</div>

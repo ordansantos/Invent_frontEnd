@@ -5,11 +5,15 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
     myScope.listMachinesInRoom;
     myScope.listThingsInRoom;
 
+    myScope.query = {
+      order: 'number_Patrimony',
+      limit: 10,
+      page: 1
+    };
+
     myScope.listResult;
 
     var room = $stateParams.room;
-
-    console.log($stateParams.room);
 
     listMachinesInRoom = function (room) {
         MachineFactory.listMachinesInRoom(room).then(function(result){
@@ -24,6 +28,10 @@ angular.module('Invent').controller('ListObjectsRoomController', function($scope
             myScope.listResult = myScope.listMachinesInRoom.concat(myScope.listThingsInRoom);
         })
     };
+
+    myScope.showThing = function(id){
+  		$state.go('create-edit-thing', { idThing : id});
+  	};
 
     listMachinesInRoom($stateParams.room);
 

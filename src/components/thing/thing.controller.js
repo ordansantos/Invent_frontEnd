@@ -1,12 +1,12 @@
 angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams) {
 
 	var myScope = $scope;
-
+	$scope.selected = [];
 	$scope.thing;
   $scope.editable = false;
 
   var idThing = $stateParams.idThing;
-
+	var thingsCount;
 	$scope.listRooms;
 
 
@@ -19,10 +19,10 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	listRooms();
 
   myScope.getThing = function (id) {
-      console.log(id);
+      console.log("getThing id:" + id);
       ThingFactory.getThing(id).then(function(result){
-          console.log(result);
-          $scope.thing = result;
+          console.log("resultado " + result._id);
+          $scope.thing = result[0];
       }).catch(function(result){
           console.log("Error");
       })
@@ -31,6 +31,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	listThings = function (){
 		ThingFactory.getThings().then(function(result){
 			myScope.listThings = result;
+			myScope.thingsCount = result.length;
+			console.log(result);
 		})
 	};
 
@@ -42,15 +44,23 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
   };
 
 
-	myScope.showThing = function(id){
-		console.log(id);
-		$state.go('create-edit-thing', { idThing : id});
+
+
+	myScope.showThing = function(item){
+		console.log(item._id);
+		$state.go('create-edit-thing', { idThing : item._id});
 	};
 
 	//go to any state
 	myScope.goTo = function(state) {
 		$state.go(state);
 	};
+
+	myScope.query = {
+    order: 'number_Patrimony',
+    limit: 10,
+    page: 1
+  };
 
 	myScope.addThing = function(thing){
 		ThingFactory.addThing(thing).then(function(result){
@@ -68,6 +78,16 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	      }).catch(function(result){
 	          console.log("Error");
 	      })
-	  };
+	};
+
+	myScope.thingReport = function () {
+		console.log('report thing controller');
+		ThingFactory.thingReport().then(function(result){
+			$state.go('listing-things');
+			console.log("Sucesso");
+		}).catch(function(result){
+			console.log("Error");
+		})
+	}
 
 });
