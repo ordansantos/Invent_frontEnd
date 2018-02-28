@@ -58,7 +58,6 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
 
             };
 
-
             return $http(req).then(function (response) {
                 return response.data;
             }, function errorCallback(response) {
@@ -85,7 +84,6 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
         },
 
         editMachine: function (machine) {
-            console.log(machine._id);
 
             var req = {
                 method: 'PUT',
@@ -106,7 +104,6 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
 
 
         addMachine: function (machine) {
-            console.log(machine);
 
             var req = {
                 method: 'POST',
