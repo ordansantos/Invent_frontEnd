@@ -19,7 +19,7 @@
           <form name="thingForm" novalidate>
             <md-input-container class="md-block">
               <label>Descrição</label>
-              <input type="text" name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required>
+              <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required>
               <div ng-messages="thingForm.description.$error" ng-messages-multiple ng-show="thingForm.description.$touched && thingForm.description.$invalid">
                 <div ng-message="required">
                   Você precisa descrever o objeto
@@ -30,30 +30,31 @@
             <div layout-gt-xs="row">
               <md-input-container class="md-block" flex-gt-xs="">
                 <label>Número de patrimônio</label>
-                <input type="text" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="numberPatrimony" ng-model="thing.number_Patrimony"/>
               </md-input-container>
+
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Número de Série</label>
-                <input type="text" name="numberSerie" ng-model="thing.serie" />
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="numberSerie" ng-model="thing.serie" />
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Origem</label>
-                <input type="text" name="origin" ng-model="thing.origem">
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="origin" ng-model="thing.origem">
               </md-input-container>
 
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Marca/Modelo</label>
-                <input type="text" name="brandModel" ng-model="thing.brand_model">
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="brandModel" ng-model="thing.brand_model">
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Sala</label>
-                <md-select ng-model="thing.room" name="room">
+                <md-select ng-disabled = "currentUserKind == 'COMUM'" ng-model="thing.room" name="room">
                   <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
                 </md-select>
 
@@ -61,7 +62,7 @@
 
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Situação</label>
-                <md-select ng-model="thing.situation" name="machineSituation">
+                <md-select ng-disabled = "currentUserKind == 'COMUM'" ng-model="thing.situation" name="machineSituation">
                   <md-option value="bom">BOM</md-option>
                   <md-option value="ruim">RUIM</md-option>
                   <md-option value="desuso">DESUSO</md-option>
@@ -72,29 +73,29 @@
 
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Data de aquisição</label>
-                <md-datepicker type="date" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
+                <md-datepicker ng-disabled = "currentUserKind == 'COMUM'" type="date" ng-model="thing.acquisition_date" md-placeholder="Enter date" md-open-on-focus />
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Local de Destino</label>
-                <input type="text" ng-model="thing.destination">
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="thing.destination">
               </md-input-container>
 
 
               <md-input-container class="md-block" flex-gt-sm="">
                 <label>Comentários</label>
-                <input type="text" ng-model="thing.comments" md-maxlength="75" md-select-on-focus="">
+                <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="thing.comments" md-maxlength="75" md-select-on-focus="">
               </md-input-container>
             </div>
 
-
-            <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+            <!-- esconder esses botoes do usuario comum -->
+            <div class="md-block" ng-if="!editable" flex-gt-xs style="text-align: right">
               <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
             </div>
 
-            <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+            <div class="md-block" ng-if="editable" ng-hide="currentUserKind == 'COMUM'" flex-gt-xs style="text-align: right">
               <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
             </div>
 

@@ -1,4 +1,4 @@
-angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams) {
+angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams, authentication) {
 
     var myScope = $scope;
     var machinesCount;
@@ -100,5 +100,13 @@ angular.module('Invent').controller('MachineController', function($scope, $state
             console.log("Error");
         })
     };
+
+    getKindCurrentUser = function () {
+  		var currentUserKind = authentication.currentUser();
+  		myScope.currentUserKind = currentUserKind.kind;
+  	}
+
+    getKindCurrentUser();
+
 
 });

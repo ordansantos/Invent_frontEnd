@@ -59,7 +59,7 @@
         </md-grid-tile>
       </md-grid-list>
 
-        <md-button ng-click="goTo('create-edit-room')" id="criarNovaSala" class="md-fab md-fab-bottom-right red lighten-2">
+        <md-button ng-hide="currentUserKind === 'COMUM'" ng-click="goTo('create-edit-room')" id="criarNovaSala" class="md-fab md-fab-bottom-right red lighten-2">
             <md-icon>add</md-icon>
         </md-button>
 
