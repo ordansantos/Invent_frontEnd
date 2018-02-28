@@ -10,7 +10,7 @@ angular.module('Invent').controller('MyDataController', function($scope, $state,
 
     myScope.getMyData = function (id) {
         console.log(id);
-        UserFactory.getUser(id).then(function(result){
+        UserFactory.getUser(currentUser._id).then(function(result){
             console.log(result);
             $scope.mydata = result;
         }).catch(function(result){
