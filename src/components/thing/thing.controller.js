@@ -4,6 +4,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	$scope.selected = [];
 	$scope.thing;
   $scope.editable = false;
+	myScope.situations = ["BOM", "RUIM", "DESUSO", "DOAÇÃO"]
 
   var idThing = $stateParams.idThing;
 	var thingsCount;

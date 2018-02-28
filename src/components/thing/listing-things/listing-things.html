@@ -40,7 +40,12 @@
               <th md-column>
                 <md-input-container>
                 <label>Pesquisar por Situação</label>
-                <input type="text" ng-model="search.situation" flex-gt-sm="">
+                <md-select ng-model="situation">
+                  <md-option value="{{undefined}}"><em>Nenhum</em></md-option>
+                  <md-option ng-repeat="x in situations" ng-value="x">
+                    {{x}}
+                  </md-option>
+                <!-- <input type="text" ng-model="search.situation" flex-gt-sm=""> -->
                 </md-input-container>
               </th>
             </tr>
@@ -59,7 +64,7 @@
                                                | filter:search:search.serie
                                                | filter:search:search.description
                                                | filter:search:search.brand_model
-                                               | filter:search:search.situation | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                               | filter:situation | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
               <td md-cell>{{thing.number_Patrimony}}</td>
               <td md-cell>{{thing.serie}}</td>
               <td md-cell><textarea style="border: none">{{thing.description}}</textarea></td>
