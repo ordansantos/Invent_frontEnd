@@ -40,7 +40,12 @@
               <th md-column>
                 <md-input-container>
                 <label>Pesquisar por Situação</label>
-                <input type="text" ng-model="search.situation" flex-gt-sm="">
+                <md-select ng-model="situation">
+                  <md-option value="{{undefined}}"><em>Nenhum</em></md-option>
+                  <md-option ng-repeat="x in situations" ng-value="x">
+                    {{x}}
+                  </md-option>
+                <!-- <input type="text" ng-model="search.situation" flex-gt-sm=""> -->
                 </md-input-container>
               </th>
             </tr>
@@ -59,7 +64,7 @@
                                                | filter:search:search.serie
                                                | filter:search:search.description
                                                | filter:search:search.brand_model
-                                               | filter:search:search.situation | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                               | filter:situation | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
               <td md-cell>{{thing.number_Patrimony}}</td>
               <td md-cell>{{thing.serie}}</td>
               <td md-cell><textarea style="border: none">{{thing.description}}</textarea></td>
@@ -72,14 +77,18 @@
       </md-table-container>
       <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 12]" md-page="query.page" md-total="{{thingsCount}}" md-page-select md-on-paginate="listThings()"></md-table-pagination>
     </md-card>
-    <md-button ng-click="thingReport()" id="relatorioObjetos" class="md-fab md-fab-bottom-left blue lighten-2">
+
+    <!-- esconder esses botoes do usuario comum -->
+    <md-button ng-hide="currentUserKind === 'COMUM'" ng-click="thingReport()" id="relatorioObjetos" class="md-fab md-fab-bottom-left blue lighten-2">
       <md-icon>print</md-icon>
     </md-button>
+    <!--  -->
     <div id="FAB-BUTTON">
-      <md-button ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
+      <md-button ng-hide="currentUserKind === 'COMUM'" ng-click="goTo('create-edit-thing')" id="criarNovoObjeto" class="md-fab md-fab-bottom-right red lighten-2">
         <md-icon>add</md-icon>
       </md-button>
     </div>
+
   </div>
  </div>
 </div>

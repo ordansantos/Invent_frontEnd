@@ -1,4 +1,4 @@
-angular.module('Invent').controller('RoomController', function($scope, $state, RoomFactory, $stateParams, MachineFactory, ThingFactory) {
+angular.module('Invent').controller('RoomController', function($scope, $state, RoomFactory, $stateParams, MachineFactory, ThingFactory, authentication) {
 
     var myScope = $scope;
     myScope.listRooms;
@@ -35,6 +35,12 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
       })
     }
 
+    getKindCurrentUser = function () {
+  		var currentUserKind = authentication.currentUser();
+  		myScope.currentUserKind = currentUserKind.kind;
+  	}
+
+  	getKindCurrentUser();
 
     listRooms = function (){
         RoomFactory.getRooms().then(function(result){

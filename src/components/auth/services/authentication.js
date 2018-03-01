@@ -56,9 +56,11 @@
                 return {
                     email : payload.email,
                     name : payload.name,
+
                     room : payload.room,
                     userKind : payload.userKind,
                     id : payload._id
+
                 };
             }
         };

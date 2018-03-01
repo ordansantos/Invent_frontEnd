@@ -61,7 +61,6 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
 
 
             return $http(req).then(function (response) {
-                console.log(response.data);
                 return response.data;
             }, function errorCallback(response) {
                 console.log("Erro na request de things!", response);

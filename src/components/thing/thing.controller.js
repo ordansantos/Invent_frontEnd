@@ -1,9 +1,10 @@
-angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams) {
+angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams, authentication) {
 
 	var myScope = $scope;
 	$scope.selected = [];
 	$scope.thing;
   $scope.editable = false;
+	myScope.situations = ["BOM", "RUIM", "DESUSO", "DOAÇÃO"]
 
   var idThing = $stateParams.idThing;
 	var thingsCount;
@@ -19,10 +20,8 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 	listRooms();
 
   myScope.getThing = function (id) {
-      console.log("getThing id:" + id);
       ThingFactory.getThing(id).then(function(result){
-          console.log("resultado " + result._id);
-          $scope.thing = result[0];
+          $scope.thing = result;
       }).catch(function(result){
           console.log("Error");
       })
@@ -33,6 +32,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 			myScope.listThings = result;
 			myScope.thingsCount = result.length;
 			console.log(result);
+
 		})
 	};
 
@@ -43,11 +43,15 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
       myScope.getThing(idThing);
   };
 
+	getKindCurrentUser = function () {
+		var currentUserKind = authentication.currentUser();
+		myScope.currentUserKind = currentUserKind.kind;
+	}
 
+	getKindCurrentUser();
 
 
 	myScope.showThing = function(item){
-		console.log(item._id);
 		$state.go('create-edit-thing', { idThing : item._id});
 	};
 

@@ -1,4 +1,4 @@
-angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams) {
+angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams, authentication) {
 
     var myScope = $scope;
     var machinesCount;
@@ -16,7 +16,6 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     };
 
     if($scope.machine != undefined){
-        console.log($scope.machine);
         $scope.acquisition_date = new Date();
     }
 
@@ -35,10 +34,9 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     listRooms();
 
     myScope.getMachine = function (id) {
-        console.log(id);
         MachineFactory.getMachine(id).then(function(result){
             console.log(result);
-            $scope.machine = result[0];
+            $scope.machine = result;
         }).catch(function(result){
             console.log("Error");
         })
@@ -64,7 +62,6 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     };
 
     myScope.showMachine = function(machine){
-        console.log(machine);
        $state.go('create-edit-machine', { idMachine : machine._id});
     };
 
@@ -100,5 +97,13 @@ angular.module('Invent').controller('MachineController', function($scope, $state
             console.log("Error");
         })
     };
+
+    getKindCurrentUser = function () {
+  		var currentUserKind = authentication.currentUser();
+  		myScope.currentUserKind = currentUserKind.kind;
+  	}
+
+    getKindCurrentUser();
+
 
 });
