@@ -1,6 +1,6 @@
 (function () {
 
-    var myIp = 'inventbackend.herokuapp.com';
+    var myIp = 'https://inventbackend.herokuapp.com';
 
     angular
         .module('Invent')
