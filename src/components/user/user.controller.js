@@ -1,8 +1,10 @@
-angular.module('Invent').controller('UserController', function($scope, $state, UserFactory, $mdDialog, RoomFactory) {
+angular.module('Invent').controller('UserController', function($scope, $state, UserFactory, $mdDialog, RoomFactory, authentication) {
 
     var myScope = $scope;
     var usersCount;
+    var currentUserKind;
     $scope.listRooms;
+
 
     listRooms = function (){
         RoomFactory.getRooms().then(function(result){
@@ -31,7 +33,7 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
     };
 
     $scope.createUser = function(user){
-      user.userKind = 'NORMAL'
+      user.userKind = 'COMUM'
       UserFactory.addUser(user).then(function(result){
         $state.go('list-users')
         console.log("Sucesso");
@@ -51,6 +53,13 @@ angular.module('Invent').controller('UserController', function($scope, $state, U
             myScope.users = result.reverse();
         });
     };
+
+    getKindCurrentUser = function () {
+  		var currentUserKind = authentication.currentUser();
+  		myScope.currentUserKind = currentUserKind.kind;
+  	}
+
+  	getKindCurrentUser();
 
     myScope.query = {
       order: 'name',

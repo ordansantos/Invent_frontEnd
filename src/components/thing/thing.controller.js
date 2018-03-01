@@ -1,4 +1,4 @@
-angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams) {
+angular.module('Invent').controller('ThingController', function($scope, $state, ThingFactory, RoomFactory, $stateParams, authentication) {
 
 	var myScope = $scope;
 	$scope.selected = [];
@@ -32,6 +32,7 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
 			myScope.listThings = result;
 			myScope.thingsCount = result.length;
 			console.log(result);
+
 		})
 	};
 
@@ -42,7 +43,12 @@ angular.module('Invent').controller('ThingController', function($scope, $state, 
       myScope.getThing(idThing);
   };
 
+	getKindCurrentUser = function () {
+		var currentUserKind = authentication.currentUser();
+		myScope.currentUserKind = currentUserKind.kind;
+	}
 
+	getKindCurrentUser();
 
 
 	myScope.showThing = function(item){

@@ -21,7 +21,7 @@
 
                   <md-input-container class="md-block" flex-gt-xs="">
                       <label>Descrição</label>
-                      <input type="text" autocomplete=""ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required>
+                      <input ng-disabled = "currentUserKind == 'COMUM'" type="text" autocomplete=""ng-model="machine.description" md-maxlength="150" rows="5" name="machineDescription" maxlength="150" required>
                       <div ng-messages="machineForm.machineDescription.$error">
                           <div ng-message="required"> Este campo é obrigatório! </div>
                       </div>
@@ -31,12 +31,12 @@
 
                       <md-input-container class="md-block" flex-gt-xs="">
                           <label>IP público</label>
-                          <input type="text" ng-model="machine.public_ip" name="publicIP">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.public_ip" name="publicIP">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Usuário da Máquina</label>
-                          <input type="text" ng-model="machine.machine_user" name="machineUser">
+                          <input  ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.machine_user" name="machineUser">
 
                       </md-input-container>
                   </div>
@@ -44,62 +44,62 @@
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Processador</label>
-                          <input type="text" ng-model="machine.processor">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.processor">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>HD</label>
-                          <input type="text" ng-model="machine.hd">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.hd">
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Memória RAM</label>
-                          <input  type="text" ng-model="machine.ram_memory">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.ram_memory">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio</label>
-                          <input type="text" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.number_Patrimony" name="numberOfPatrimony">
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Patrimônio Inst</label>
-                          <input type="text" ng-model="machine.inst_Patrimony" name="instPatrimony">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.inst_Patrimony" name="instPatrimony">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Monitor</label>
-                          <input type="text" ng-model="machine.monitor">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.monitor">
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Número de Patrimônio do Monitor </label>
-                          <input type="text" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.monitor_number_Patrimony" name="monitorNumberOfPatrimony">
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Patrimônio Monitor Inst</label>
-                          <input type="text" ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.inst_monitor_Patrimony" name="instMonitorPatrimony">
                       </md-input-container>
                   </div>
 
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Sala</label>
-                          <md-select ng-model="machine.room" name="room">
+                          <md-select ng-disabled = "currentUserKind == 'COMUM'" ng-model="machine.room" name="room">
                               <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
                           </md-select>
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Situação</label>
-                          <md-select ng-model="machine.situation" name="machineSituation">
+                          <md-select ng-disabled = "currentUserKind == 'COMUM'" ng-model="machine.situation" name="machineSituation">
                               <md-option value="bom">BOM</md-option>
                               <md-option value="ruim">RUIM</md-option>
                               <md-option value="desuso">DESUSO</md-option>
@@ -111,19 +111,19 @@
                   <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Data de aquisição</label>
-                          <md-datepicker type="text" ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
+                          <md-datepicker ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
                       </md-input-container>
 
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Local de Destino</label>
-                          <input type="text" ng-model="machine.destination">
+                          <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.destination">
                       </md-input-container>
                   </div>
 
                   <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>
                   </div>
-                  <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+                  <div class="md-block" ng-show="editable" ng-hide="currentUserKind == 'COMUM'" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>
                   </div>
               </form>
