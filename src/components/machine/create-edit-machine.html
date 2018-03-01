@@ -106,14 +106,14 @@
                               <md-option value="doação">DOAÇÂO</md-option>
                           </md-select>
                       </md-input-container>
-                  </div>
 
-                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Data de aquisição</label>
                           <md-datepicker ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.acquisition_date" md-placeholder="Enter date" md-open-on-focus name="machineAcquisitionDate" md-max-date="maxDate"></md-datepicker>
                       </md-input-container>
+                  </div>
 
+                  <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
                           <label>Local de Destino</label>
                           <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="machine.destination">
