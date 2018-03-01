@@ -100,7 +100,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
 
     getKindCurrentUser = function () {
   		var currentUserKind = authentication.currentUser();
-  		myScope.currentUserKind = currentUserKind.kind;
+  		myScope.currentUserKind = currentUserKind.userKind;
   	}
 
     getKindCurrentUser();
