@@ -37,7 +37,7 @@ angular.module('Invent').controller('RoomController', function($scope, $state, R
 
     getKindCurrentUser = function () {
   		var currentUserKind = authentication.currentUser();
-  		myScope.currentUserKind = currentUserKind.kind;
+  		myScope.currentUserKind = currentUserKind.userKind;
   	}
 
   	getKindCurrentUser();
