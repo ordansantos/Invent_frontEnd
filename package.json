@@ -3,6 +3,7 @@
   "lockfileVersion": 1,
   "main": "web.js",
   "dependencies": {
+    "express": "^4.16.2",
     "angular": {
       "version": "1.5.11",
       "resolved": "https://registry.npmjs.org/angular/-/angular-1.5.11.tgz",
