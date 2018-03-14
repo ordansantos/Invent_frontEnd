@@ -113,7 +113,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
   	}
 
   	myScope.viewImage = function (machine) {
-  		var myIp = 'http://localhost:8081/uploads/machinesImages/'
+  		var myIp = 'https://inventbackend.herokuapp.com/uploads/machinesImages/'
   		myScope.imageUrl = myIp + machine.image;
   		myScope.clickOK = true;
   	}
