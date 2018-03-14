@@ -16,7 +16,7 @@
     <md-content layout-margin="20px" layout-padding>
       <md-card layout-padding>
         <div flex>
-          <form name="thingForm" novalidate>
+          <form name="thingForm" enctype="multipart/form-data" novalidate >
             <md-input-container class="md-block">
               <label>Descrição</label>
               <input ng-disabled = "currentUserKind == 'COMUM'" type="text" name="description" ng-model="thing.description" md-maxlenght="150" rows="5" md-select-on-focus="" required>
@@ -88,6 +88,20 @@
                 <label>Comentários</label>
                 <input ng-disabled = "currentUserKind == 'COMUM'" type="text" ng-model="thing.comments" md-maxlength="75" md-select-on-focus="">
               </md-input-container>
+            </div>
+
+            <!--  se não tiver foto for criar, mostra esse -->
+            <input id="imageThing" type="file" name="image" ng-model=thing.image>
+
+            <br>
+            <br>
+
+            <div>
+              <md-button ng-click="viewImage(thing)" ng-show="(thing != null) && getHasImage(thing)" ng-model="thing.image" class="md-primary md-hue-1">Objeto ja possui uma imagem</md-button>
+            </div>
+
+            <div ng-show="clickOK">
+              <img ng-src="{{trustSrc(imageUrl)}}" style="width:400px; height:400px; display:inline-block" alt=""></img>
             </div>
 
             <!-- esconder esses botoes do usuario comum -->

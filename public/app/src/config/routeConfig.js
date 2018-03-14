@@ -9,6 +9,12 @@ angular.module('Invent').config(function($stateProvider, $urlRouterProvider) {
       controller: 'ThingController'
     })
 
+    .state('view-image-thing', {
+        url: '/view-image-thing/:image',
+        templateUrl: 'src/components/thing/view-image-thing.html',
+        controller: 'ThingController'
+    })
+
   .state('create-edit-machine', {
       url: '/create-edit-machine/:idMachine',
       templateUrl: 'src/components/machine/create-edit-machine.html',

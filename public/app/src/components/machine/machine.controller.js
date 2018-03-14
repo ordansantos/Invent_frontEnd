@@ -1,4 +1,4 @@
-angular.module('Invent').controller('MachineController', function($scope, $state, MachineFactory, RoomFactory, $stateParams, authentication) {
+angular.module('Invent').controller('MachineController', function($scope, $state, $sce, MachineFactory, RoomFactory, $stateParams, authentication) {
 
     var myScope = $scope;
     var machinesCount;
@@ -104,6 +104,24 @@ angular.module('Invent').controller('MachineController', function($scope, $state
   	}
 
     getKindCurrentUser();
+
+    // PARTE DA FOTO
+
+    $scope.trustSrc = function(src) {
+  		return $sce.trustAsResourceUrl(src);
+  		myScope.clickOK = false;
+  	}
+
+  	myScope.viewImage = function (machine) {
+  		var myIp = 'http://localhost:8081/uploads/machinesImages/'
+  		myScope.imageUrl = myIp + machine.image;
+  		myScope.clickOK = true;
+  	}
+
+  	myScope.getHasImage = function (machine) {
+  		myScope.hasImage = machine.image != '';
+  		return myScope.hasImage;
+  	}
 
 
 });

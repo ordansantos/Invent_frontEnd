@@ -1,0 +1,42 @@
+<md-toolbar>
+  <div class="md-toolbar-tools blue">
+    <img width="200px" src="src/components/images/customLogo.png" alt="">
+  </div>
+</md-toolbar>
+
+<div layout="row">
+  <sidenav></sidenav>
+  <div class="form" flex layout="column" ng-cloak>
+
+    <md-content layout-margin="20px" layout-padding>
+      <md-card layout-padding>
+        <div flex>
+          <form name="thingForm" enctype="multipart/form-data" novalidate >
+              {{thing}}
+            <!--  se não tiver foto for criar, mostra esse -->
+            <input id="imageThing" type="file" name="image" ng-model=thing.image>
+            <br>
+            <br>
+            <div>
+              <md-button ng-click="viewImage(thing)" ng-show="(thing != null) && getHasImage(thing)" ng-model="thing.image" class="md-primary md-hue-1">Objeto ja possui uma imagem</md-button>
+            </div>
+
+            <div ng-show="imageUrl != ''">
+              <img ng-src="{{trustSrc(imageUrl)}}" style="width:400px; height:400px" alt=""></img>
+            </div>
+
+            <!-- esconder esses botoes do usuario comum -->
+            <div class="md-block" ng-if="!editable" flex-gt-xs style="text-align: right">
+              <md-button type="submit" value="salvar" ng-click="addThing(thing)" class="md-raised md-primary">Salvar</md-button>
+            </div>
+
+            <div class="md-block" ng-if="editable" ng-hide="currentUserKind == 'COMUM'" flex-gt-xs style="text-align: right">
+              <md-button type="submit" value="editar" ng-click="editThing(thing)" class="md-raised md-primary">Editar</md-button>
+            </div>
+
+          </form>
+        </div>
+      </md-card>
+    </md-content>
+  </div>
+</div>

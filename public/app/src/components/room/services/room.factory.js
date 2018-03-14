@@ -1,6 +1,6 @@
 angular.module('Invent').factory('RoomFactory', function ($window, $http, $state) {
 
-    var myIp = 'https://inventbackend.herokuapp.com';
+    var myIp = 'http://localhost:8081';
 
     return {
 

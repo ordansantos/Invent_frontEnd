@@ -10,22 +10,24 @@
     <div class="form" layout="column" flex ng-cloak>
 
         <md-content layout-padding="" flex="">
-            <div>
-                <form>
+            <md-card layout-padding>
+                <div>
+                    <form>
 
-                    <md-input-container class="md-block" flex-gt-xs="">
-                        <label>Nome</label>
-                        <input type="text" ng-model="room.name" name="roomName" required>
-                    </md-input-container>
+                        <md-input-container class="md-block" flex-gt-xs="">
+                            <label>Nome</label>
+                            <input type="text" ng-model="room.name" name="roomName" required>
+                        </md-input-container>
 
-                    <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
-                        <md-button type="submit" value="salvar" ng-click="createRoom(room)" class="md-raised md-primary">Salvar</md-button>
-                    </div>
-                    <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
-                        <md-button type="submit" value="editar" ng-click="editRoom(room)" class="md-raised md-primary">Editar</md-button>
-                    </div>
-                </form>
-            </div>
+                        <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+                            <md-button type="submit" value="salvar" ng-click="createRoom(room)" class="md-raised md-primary">Salvar</md-button>
+                        </div>
+                        <div class="md-block" ng-show="editable" flex-gt-xs style="text-align: right">
+                            <md-button type="submit" value="editar" ng-click="editRoom(room)" class="md-raised md-primary">Editar</md-button>
+                        </div>
+                    </form>
+                </div>
+            </md-card>
         </md-content>
     </div>
 </div>

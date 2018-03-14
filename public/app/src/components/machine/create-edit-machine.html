@@ -1,12 +1,6 @@
 <md-toolbar>
     <div class="md-toolbar-tools blue">
       <img width="200px" src="src/components/images/customLogo.png" alt="">
-        <!-- <strong>
-            <i class="material-icons left">
-                assignment
-            </i> InLab
-        </strong> -->
-
     </div>
 </md-toolbar>
 
@@ -120,10 +114,24 @@
                       </md-input-container>
                   </div>
 
-                  <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+                  <!--  se não tiver foto for criar, mostra esse -->
+                  <input id="imageMachine" type="file" name="image" ng-model=machine.image>
+
+                  <br>
+                  <br>
+
+                  <div>
+                    <md-button ng-click="viewImage(machine)" ng-show="(machine != null) && getHasImage(machine)" ng-model="machine.image" class="md-primary md-hue-1">Maquina ja possui uma imagem</md-button>
+                  </div>
+
+                  <div ng-show="clickOK">
+                    <img ng-src="{{trustSrc(imageUrl)}}" style="width:400px; height:400px; display:inline-block" alt=""></img>
+                  </div>
+
+                  <div class="md-block" ng-if="!editable" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="salvar" ng-click="addMachine(machine)" class="md-raised md-primary">Salvar</md-button>
                   </div>
-                  <div class="md-block" ng-show="editable" ng-hide="currentUserKind == 'COMUM'" flex-gt-xs style="text-align: right">
+                  <div class="md-block" ng-if="editable" ng-hide="currentUserKind == 'COMUM'" flex-gt-xs style="text-align: right">
                       <md-button type="submit" value="editar" ng-click="editMachine(machine)" class="md-raised md-primary">Editar</md-button>
                   </div>
               </form>

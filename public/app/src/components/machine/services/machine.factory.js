@@ -1,6 +1,6 @@
 angular.module('Invent').factory('MachineFactory', function ($window, $http, $state) {
 
-    var myIp = 'https://inventbackend.herokuapp.com';
+    var myIp = 'http://localhost:8081';
 
     return {
 
@@ -85,12 +85,25 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
 
         editMachine: function (machine) {
 
+          var formData = new FormData;
+          //getting file
+          var file = $('#imageMachine')[0].files[0];
+          
+          if (file != null) {
+            formData.append('image', file);
+          }
+
+          for (var key in machine) {
+              formData.append(key, machine[key]);
+          }
+
             var req = {
                 method: 'PUT',
                 url: myIp + '/machine/' + machine._id,
-                data: machine,
+                data: formData,
                 headers: {
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': undefined
                 }
             }
 
@@ -105,12 +118,22 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
 
         addMachine: function (machine) {
 
+          var formData = new FormData;
+          //getting file
+          var file = $('#imageMachine')[0].files[0];
+          formData.append('image', file);
+
+          for (var key in machine) {
+              formData.append(key, machine[key]);
+          }
+
             var req = {
                 method: 'POST',
                 url: myIp + '/machine',
-                data: machine,
+                data: formData,
                 headers: {
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': undefined
                 }
             }
 

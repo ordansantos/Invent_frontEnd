@@ -1,6 +1,6 @@
 angular.module('Invent').factory('ThingFactory', function ($window, $http, $state) {
 
-    var myIp = 'https://inventbackend.herokuapp.com';
+    var myIp = 'http://localhost:8081';
 
     return {
 
@@ -49,7 +49,6 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
         },
 
         getThing: function (id) {
-          console.log("id " + id)
             var req = {
                 method: 'GET',
                 url: myIp + '/thing/' + id,
@@ -86,14 +85,29 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
         },
 
         editThing: function (thing) {
-            console.log(thing._id);
+
+            console.log(thing);
+            var formData = new FormData;
+            //getting file
+            var file = $('#imageThing')[0].files[0];
+            console.log(file);
+
+            if (file != null) {
+              formData.append('image', file);
+            }
+
+            for (var key in thing) {
+              formData.append(key, thing[key]);
+            }
+
 
             var req = {
                 method: 'PUT',
                 url: myIp + '/thing/' + thing._id,
-                data: thing,
+                data: formData,
                 headers: {
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': undefined
                 }
             }
 
@@ -104,17 +118,24 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
             });
         },
 
-
-
         addThing: function (thing) {
-            console.log(thing);
+
+          var formData = new FormData;
+          //getting file
+          var file = $('#imageThing')[0].files[0];
+          formData.append('image', file);
+
+          for (var key in thing) {
+              formData.append(key, thing[key]);
+          }
 
             var req = {
+                data: formData,
                 method: 'POST',
                 url: myIp + '/thing',
-                data: thing,
                 headers: {
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': undefined
                 }
             }
 
@@ -124,6 +145,5 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
 
             });
         }
-
     }
 });

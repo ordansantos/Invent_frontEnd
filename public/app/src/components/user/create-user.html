@@ -18,62 +18,64 @@
 
   <div class="form" layout="column" flex ng-cloak ng-controller="UserController">
     <md-content layout-padding="">
-      <form name="userForm">
+      <md-card layout-padding>
+        <form name="userForm">
 
-        <div layout="row">
-          <md-input-container flex="50">
-            <label>Nome</label>
-            <input required="" name="userName" ng-model="user.name">
-            <div ng-messages="userForm.userName.$error">
-              <div ng-message="required">Campo obrigatório.</div>
-            </div>
-          </md-input-container>
+          <div layout="row">
+            <md-input-container flex="50">
+              <label>Nome</label>
+              <input required="" name="userName" ng-model="user.name">
+              <div ng-messages="userForm.userName.$error">
+                <div ng-message="required">Campo obrigatório.</div>
+              </div>
+            </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm="">
-                            <label>Sala</label>
-                            <md-select ng-model="user.room" name="room">
-                                <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
-                            </md-select>
-                        </md-input-container>
-        </div>
-
-        <md-input-container class="md-block">
-          <label>Email</label>
-          <input required="" type="email" name="userEmail" ng-model="user.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
-
-          <div ng-messages="userForm.userEmail.$error" role="alert">
-            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-              Seu email precisa conter de 10 a 100 caracteres e ser um formato de e-mail válido.
-            </div>
+            <md-input-container class="md-block" flex-gt-sm="">
+                              <label>Sala</label>
+                              <md-select ng-model="user.room" name="room">
+                                  <md-option ng-repeat="room in listRooms" id="{{room.name}}" value="{{room.name}}">{{room.name}}</md-option>
+                              </md-select>
+                          </md-input-container>
           </div>
-        </md-input-container>
 
-        <div layout="row">
-          <md-input-container flex="50">
-            <label>Senha</label>
-            <input required="" type="password" name="userPwd" ng-model="user.password" minlength="8" maxlength="100">
-            <div ng-messages="userForm.userPwd.$error" >
-              <div ng-message-exp="minlength">Senha muito curta. A senha deve possuir no mínimo 8 caracteres</div>
-              <div ng-message-exp="maxlength">Senha muito longa. A senha deve conter no máximo 100 caracteres</div>
-              <div ng-message-exp="required">Campo obrigatório.</div>
+          <md-input-container class="md-block">
+            <label>Email</label>
+            <input required="" type="email" name="userEmail" ng-model="user.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
+            <div ng-messages="userForm.userEmail.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                Seu email precisa conter de 10 a 100 caracteres e ser um formato de e-mail válido.
+              </div>
             </div>
           </md-input-container>
-          <md-input-container flex="50">
-            <label>Confirme sua senha</label>
-            <input required="" type="password" name="pwdConfirm" ng-model="user.pwdConfirm" compare-to="user.password">
-            <div ng-messages="userForm.pwdConfirm.$error" >
-              <div ng-message-exp="userForm.pwdConfirm.$error.compare-to">As senhas precisam ser iguais.</div>
-              <div ng-message-exp="required">Campo obrigatório.</div>
-            </div>
-          </md-input-container>
-        </div>
 
-        <div class="md-block" flex-gt-xs style="text-align: right">
-          <md-button type="submit" value="salvar" ng-click="createUser(user)" ng-disabled="userForm.$invalid" class="md-raised md-primary">Salvar</md-button>
-        </div>
+          <div layout="row">
+            <md-input-container flex="50">
+              <label>Senha</label>
+              <input required="" type="password" name="userPwd" ng-model="user.password" minlength="8" maxlength="100">
+              <div ng-messages="userForm.userPwd.$error" >
+                <div ng-message-exp="minlength">Senha muito curta. A senha deve possuir no mínimo 8 caracteres</div>
+                <div ng-message-exp="maxlength">Senha muito longa. A senha deve conter no máximo 100 caracteres</div>
+                <div ng-message-exp="required">Campo obrigatório.</div>
+              </div>
+            </md-input-container>
+            <md-input-container flex="50">
+              <label>Confirme sua senha</label>
+              <input required="" type="password" name="pwdConfirm" ng-model="user.pwdConfirm" compare-to="user.password">
+              <div ng-messages="userForm.pwdConfirm.$error" >
+                <div ng-message-exp="userForm.pwdConfirm.$error.compare-to">As senhas precisam ser iguais.</div>
+                <div ng-message-exp="required">Campo obrigatório.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+          <div class="md-block" flex-gt-xs style="text-align: right">
+            <md-button type="submit" value="salvar" ng-click="createUser(user)" ng-disabled="userForm.$invalid" class="md-raised md-primary">Salvar</md-button>
+          </div>
 
 
-      </form>
+        </form>
+      </md-card>
     </md-content>
   </div>
 </div>

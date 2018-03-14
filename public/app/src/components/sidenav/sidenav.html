@@ -6,7 +6,7 @@
     <md-content role="navigation">
         <md-list ng-repeat="action in data.sidenav.actions" ng-click="toggleSidenav('sidenav')">
             <hr ng-show="isUserConfigs(action.name)">
-            <md-list-item md-colors="{background: '{{getClass(action.link)}}'}" class="sidebar-itens" name="{{action.name}}" ng-click="setRoute(action.link)">
+            <md-list-item ng-style="{'height':'50px'}"md-colors="{background: '{{getClass(action.link)}}'}" class="sidebar-itens" name="{{action.name}}" ng-click="setRoute(action.link)">
                 <md-icon>{{action.icon}}</md-icon>
                 <p class="base-font-regular"><strong>{{action.name}}</strong></p>
             </md-list-item>
