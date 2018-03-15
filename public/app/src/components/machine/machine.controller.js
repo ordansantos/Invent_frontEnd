@@ -91,6 +91,7 @@ angular.module('Invent').controller('MachineController', function($scope, $state
     myScope.machineReport = function () {
         console.log('report machine controller');
         MachineFactory.machineReport().then(function(result){
+
             $state.go('list-machines');
             console.log("Sucesso");
         }).catch(function(result){

@@ -66,7 +66,7 @@ angular.module('Invent').factory('MachineFactory', function ($window, $http, $st
         },
 
         machineReport: function () {
-            console.log('report machine service');
+            window.open(myIp + '/machines/attachments');
             var req = {
                 method: 'GET',
                 url: myIp + '/machines/attachments',

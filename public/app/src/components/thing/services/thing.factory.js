@@ -67,7 +67,7 @@ angular.module('Invent').factory('ThingFactory', function ($window, $http, $stat
         },
 
         thingReport: function () {
-            console.log('report thing service');
+            window.open(myIp + '/things/attachments');
             var req = {
                 method: 'GET',
                 url: myIp + '/things/attachments',

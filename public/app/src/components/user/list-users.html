@@ -35,8 +35,7 @@
                         <td md-cell>{{user.email}}</td>
                         <td md-cell>{{user.room}}</td>
                         <td md-cell>{{user.userKind}}</td>
-                        <td md-cell><md-button ng-hide = "currentUserKind == 'COMUM'" class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></td>
-                        </td>
+                        <td md-cell><md-button ng-hide = "user.userKind == 'ADMIN'" class="md-raised md-primary" ng-click="setUserKind($event, user)">Tornar ADM</md-button></td>
                       </tr>
                     </tbody>
                   </table>
@@ -46,7 +45,7 @@
             </div>
         </div>
 
-        <md-button ng-hide="currentUserKind === 'COMUM'" ng-click="goTo('create-user')" id="criarNovoUsuario" class="md-fab md-fab-bottom-right red lighten-2">
+        <md-button ng-hide="currentUserKind == 'COMUM'" ng-click="goTo('create-user')" id="criarNovoUsuario" class="md-fab md-fab-bottom-right red lighten-2">
           <md-icon>add</md-icon>
         </md-button>
     </div>

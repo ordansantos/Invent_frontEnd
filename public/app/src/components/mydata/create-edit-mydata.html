@@ -103,6 +103,10 @@
                             <md-button type="submit" value="editar" ng-click="editMyData(mydata)" class="md-raised md-primary">Editar</md-button>
                         </div>
 
+                        <div class="md-block" ng-show="!editable" flex-gt-xs style="text-align: right">
+                            <md-button type="submit" value="salvar" ng-click="editMyData(currentUser)" class="md-raised md-primary">Salvar</md-button>
+                        </div>
+
                     </form>
                 </div>
             </md-card>
